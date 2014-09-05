@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html class='v2' dir='ltr'>
+<head>
+<meta content='width=1100' name='viewport'/>
+
+<title>About Xennet</title>
+
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+
+<style type="text/css">
+/*	* { 
+		box-sizing: border-box; 
+	}*/
+
+	body {
+		font-family: 'Roboto', sans-serif;
+	}
+
+	.bold {
+		font-weight: 700;
+	}
+
+	/*************************************/
+	/*	       TITLE		   */
+	/*************************************/
+	.title-container {
+		height: 200px;
+		padding-top: 70px;
+		color: white;
+		background-color:  steelblue;
+	}
+
+	.title-container.fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 30px;
+	}
+
+	.title {
+		font-size: 60px;
+		text-align: center;
+		font-family: 'Roboto Slab', serif;
+		font-weight: 700;
+	}
+
+	.title-container.fixed .title {
+		display: none;
+	}
+
+	.description {
+		text-align: center;
+		color: #ddd;
+		font-size: 22px;
+	}
+
+	/*************************************/
+	/*	       AUTHOR		   */
+	/*************************************/
+	.author-container {
+		/*text-align: center;*/
+		margin: 30px auto 0;
+	}
+
+	.author-name {
+		font-size: 16px;
+	}
+
+	.author-info {
+		color: steelblue;
+		font-size: 14px;
+	}
+
+	.author-info a {
+		text-decoration: none;
+		color: steelblue;
+		cursor: pointer;
+	}
+
+	.info-seperator {
+		font-size: 16px;
+	}
+
+	.date {
+		margin: 0 0 10px 0;
+		font-style: italic;
+		font-size: 14px;
+		color: #666;
+	}
+
+	/*************************************/
+	/*	       TOC		   */
+	/*************************************/
+	.toc-container {	
+		width: 150px;
+		height: 100%;
+		float: left;
+		margin-top: 30px;
+		margin-left: 10px;		
+	}
+
+	.fixed {
+		position: fixed;
+		top: 0px;
+		left: 8px;	
+		z-index: 10;
+	}
+
+	.toc-title {
+		font-variant:small-caps;
+		padding-left: 40px;
+	}
+
+	.toc-list {
+		list-style: none;
+		-webkit-margin-before: 0.5em;
+	}
+
+	.toc-item {
+		font-size: 12px;
+		margin-bottom: 5px;
+	}
+
+	.toc-list  li:before {
+		content: "\002022";
+		color: steelblue;
+		padding-right:7px;
+	}
+
+	/*************************************/
+	/*	       CONTENT		   */
+	/*************************************/
+	.text-container {
+		width: 80%;
+		max-width: 1100px;
+		margin: 0 auto;
+
+
+	}
+
+	.section-title {
+
+		padding-top: 40px;
+		color: steelblue;
+		font-size: 30px;
+
+		-webkit-margin-after: 0.5em;
+	}
+
+	.section-text {
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 170%;
+	}
+
+	.list-item {
+		font-size: 18px;
+	}
+
+	.inner-list {
+		font-size: 14px;
+		color: #555;
+	}
+
+	.section-image {
+		-webkit-transform: rotate(0rad); 
+		border: none; 
+		/*width: 60%;
+		height: 60%;*/
+		width: 800px;
+		height: 630px;
+		
+	}	
+
+	.section-footnote-title {
+		font-size: 12px;
+		color: steelblue;
+		margin-top: 30px
+	}
+
+	.section-footnote {
+		/*width: 90%;*/
+		font-size: 12px;
+		color: steelblue;
+		margin: 10px auto;
+		padding: 20px;
+		border: 1px solid #ccc;
+	}
+
+	.algorithm {
+		padding: 10px 20px;
+		font-style: italic;
+		font-weight: 300;
+	}
+
+	.note {
+		font-style: italic;
+		font-weight: 300;
+	}
+
+	.code {
+		font-family: 'Cutive Mono';
+		font-style: normal;
+		font-size: 20px;
+		font-weight: 500;
+	}
+
+	.link, .fn, .toc-item {
+		text-decoration: none;
+		color: steelblue;
+		font-weight: 400;
+	}
+
+	.apx {
+		text-decoration: none;
+		font-weight: 400;
+		color: black;
+	}
+
+	.appendix-title {
+		font-size: 16px;
+	}
+
+	.appendix-quote {
+		display: inline-block;
+		margin: 10px 0 10px 20px;
+		font-style: italic;
+		font-size: 16px;
+	}
+
+	.appendix-quote .appendix-bold {
+		font-weight: 700;
+	}	
+
+	.presale {
+		font-size: 18px;
+		font-weight: 500;
+	}	
+
+	/*************************************/
+	/*	       TABLE		   */
+	/*************************************/
+	table {
+		text-align: left;
+		font-size: 16px;
+		width: 90%;
+		margin: 50px auto;
+		border-spacing: 0;
+	}
+
+	tr:nth-child(odd) {
+		background-color: #ddd;
+	}
+
+
+
+	th {
+		height: 40px;
+		font-size: 18px;
+		background-color: steelblue;
+		color: white;
+		border-top: 1px solid #777;
+		padding: 0 30px;
+
+	}
+
+	th:first-child {
+		border-left: 1px solid #777;
+	}
+
+	th:last-child {
+		border-right: 1px solid #777;
+	}
+
+	th#aws {
+		/*width: 30%;*/
+	}
+
+	td {
+		padding: 30px;		
+		/*border-right: 1px solid #777;*/*/
+		border-bottom: 1px solid #777;
+		vertical-align: top;
+	}
+
+	td:first-child {
+		border-left: 1px solid #777;
+		font-weight: 700;
+	}
+
+	td:last-child {
+		border-right: 1px solid #777;
+	}
+
+	tr:last-child td {
+		border-bottom: 1px solid #777;
+	}
+
+	.table-footnote {
+		font-size: 14px;
+		color: #666;
+	}
+
+</style>
+<style type="text/css">
+	@media (max-width: 750px) { 
+		 img.section-image {
+			width: 500px !important;
+			height: 450px !important;
+		}		
+	}
+
+	@media (max-width: 600px) { 
+		.title-container {
+			height: 120px;
+			padding-top: 40px;
+		}
+
+		.title-container .title {
+			font-size: 30px;
+		}
+
+		.title-container .description {
+			font-size: 14px;
+		}
+
+		 img.section-image {
+			width: 400px !important;
+			height: 350px !important;
+		}	
+
+		table {
+			font-size: 12px;
+		}
+
+		th {
+			width: auto;			
+		}	
+
+		th:first-child {
+			width: 30px !important;
+		}
+
+		.table-footnote {
+			display: none;
+			font-size: 10px;
+		}
+	}
+
+	@media (max-width: 470px) { 
+		img.section-image {
+			width: 350px !important;
+			height: 200px !important;
+		}
+	}
+
+  
+</style>
+
+<script type="text/javascript">
+	$(function() {
+		var $title = $("#title-container"), 
+		      pos = $title.offset();
+		
+		//console.log('toc', toc);
+
+		$(window).scroll(function() {
+			//console.log('$(this).scrollTop()', $(this).scrollTop(), 'pos.top', pos.top);
+
+			// if($(this).scrollTop() > pos.top - 150 && $($title.css('position') == 'static')) { 
+			// 	$title.addClass('fixed'); 
+			// }
+			// else if($(this).scrollTop() <= pos.top + 150 && $title.hasClass('fixed')) { 
+			// 	$title.removeClass('fixed'); 
+			// }
+		})	
+
+
+		// $('a').click(function(){
+		// 	$('html, body').animate({
+		// 	    scrollTop: $( $.attr(this, 'href') ).offset().top
+		// 	}, 500);
+		// 	return false;
+		// });
+	});
+</script>
+</head>
+	
+<body>
+<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-53293412-1', 'auto');
+	  ga('send', 'pageview');
+</script>
+
+<div class="title-container" id="title-container">
+	<div class='title'>
+		About Xennet
+	</div>
+
+	<div class='descriptionwrapper'>
+		<p class='description'><span>Public Supercomputing</span></p>
+	</div>
+</div>
+
+<!-- <div class="toc-container" id="toc-container">
+	<span class="toc-title">sections</span>
+	<ul class="toc-list">
+		<li><a class="toc-item" href="#title-container">overview</a></li>
+		<li><a class="toc-item" href="#section-general-flow">general flow</a></li>
+		<li><a class="toc-item" href="#section-dcv">dist. computations</a></li>
+		<li><a class="toc-item" href="#section-pricing">pricing</a></li>
+		<li><a class="toc-item" href="#section-trust">trust</a></li>
+		<li><a class="toc-item" href="#section-blockchain">blockchain</a></li>
+		<li><a class="toc-item" href="#section-economics">economics</a></li>
+		<li><a class="toc-item" href="#section-dev">development</a></li>
+		<li><a class="toc-item" href="#section-appendices">appendices</a></li>
+	</ul>
+</div> -->
+
+<div class="text-container">
+	
+	<h3 class="section-title" id="section-overview">
+		<!-- Overview -->
+	</h3>
+	<p class="section-text">
+		Xennet is a public, distributed, and decentralized Supercomputer. Computation power is traded on Xennet's open market platform. Anyone can rent computation power and use it to run arbitrary tasks. Anyone can monetize their hardware by offering unused computation power for sale.
+		<br>
+		<br>
+		Xennet allows <span class="bold">Publishers</span> who need computation power to run arbitrary computational tasks. Computation power is supplied by <span class="bold">Providers</span> for a negotiated fee. A free-market infrastructure brings Publishers and Providers together. Publishers can hire many computers and run whatever they want on them safely, thanks to cutting-edge virtualization technology. Payment is continuous and frictionless, thanks to Blockchain technology, among other technologies that shall be discussed later on.
+		<br>
+		<br>
+		The network is 100% distributed and decentralized: there is no central entity of any kind, just like Bitcoin. All software will be open source. Publishers pay Providers directly, there is no middleman. Accordingly, there are no payable commissions, except for regular transaction fees which are being paid to XenCoin miners. 
+		<br>
+		<br>
+		It is a totally free market: all participants are free to pay or charge by any rate they want. There are no restrictions. Hence, we put additional focus on customizability. We allow advanced participants to control all parameters and conditions of their nodes in a versatile way. On the other hand, simplicity and automation are made possible by making the client software implement automatic risk-reward considerations by default. In addition, we present a novel pricing model.
+		<br>
+		<br>
+		So how are we going to implement all this cool stuff? If you don't really care about the implementation, you may want to jump to the <a class="link" href="#section-dcv">Distributed Computations and Virtualization</a> or <a class="link" href="#section-economics">Economic Aspects</a> sections.
+		<br>
+		<br>
+	</p>
+	<h3 class="section-title" id="section-general-flow">
+		General Flow
+	</h3>
+	<p class="section-text">
+		The following summarizes the general idea of the software's communication protocol between publisher A and provider B:
+	</p>
+	<ol class="list ordered-list">
+		<li class="list-item">
+			Publisher <span class="bold">A</span> broadcasts an announcement (<span class="code">ann</span>) to the blockchain, saying it is seeking providers. The <span class="code">ann</span> contains information about the required systems in terms of hardware capabilities, and the publisher's IP address.
+		</li>
+		<br>
+		<li class="list-item">
+			Provider <span class="bold">B</span> polls on the blockchain. Once an <span class="code">ann</span> that matches its filter is found, it connects to <span class="bold">A</span>'s IP address.
+		</li>
+		<br>
+		<li class="list-item">
+			<span class="bold">A</span> and <span class="bold">B</span> verify each others' identity by challenging their keys, which are the key pair of their blockchain addresses.
+		</li>
+		<br>
+		<li class="list-item">
+			<span class="bold">B</span> sends <span class="bold">A</span> information about its hardware capabities.
+		</li>
+		<br>
+		<li class="list-item">
+			<span class="bold">A</span> and <span class="bold">B</span> negotiate the price and form a contract.
+		</li>
+		<br>
+		<li class="list-item">
+			<span class="bold">A</span> and <span class="bold">B</span> initiate the <a class="link" href="https://en.bitcoin.it/wiki/Contracts#Example_7:_Rapidly-adjusted_.28micro.29payments_to_a_pre-determined_party" target="_blank">Micropayments</a> protocol. <span class="bold">B</span> signs a refund transaction and A deposits coins in a 2-of-2 multisig address. <span class="bold">B</span> awaits confirmation.
+		</li>
+		<br>
+		<li class="list-item">
+			<span class="bold">B</span> creates a virtual machine and gives <span class="bold">A</span> SSH control over it.
+		</li>
+		<br>
+		<li class="list-item">
+			Every few seconds, both <span class="bold">A</span> and <span class="bold">B</span> read accumulated usage measurements. They use the Micropayment protocol to transfer coins according to the measurements and the contract terms.
+		</li>
+	</ol>
+
+	<br>
+	<p class="section-text">
+		The following sketch summarizes the above process (Note: the step numbering in the diagram is different from the above list!):
+	</p>
+	<br>
+	<img class="section-image" id="img-ann3" src="./images/ann3.jpg">
+
+	<p class="section-text">
+		The process described is a summary, and only covers the general principles. Many open questions may still remain, some of these are addressed in detail below. But first, some technical background about the Xennet environment.
+		<br>
+		<br>
+		The system's building blocks consist of new-generation virtualization technologies (e.g. <a class="link" href="https://www.docker.com/" target="_blank">docker</a>), benchmarking technologies (e.g. <a class="link" href="http://www.phoronix-test-suite.com/" target="_blank">phoronix-test-suite</a>), an improved Blockchain technology, and a novel protocol. Xennet includes the following software components:
+	</p>
+	<ul class="list unordered-list">
+		<li class="list-item">
+			A Linux distribution (<span class="code">xennet-os</span>), to be installed on either bare metal or in a Hypervisor (such as VirtualBox or Qemu), with Xennet code to manage Docker containers and collect measurements.
+		</li>
+		<br>
+		<li class="list-item">
+			A client software (<span class="code">xennetd</span> and <span class="code">xennet-qt</span>) that configures and manages the xennet-vm according to the preferences of publishers and providers.
+		</li>
+		<br>
+		<li class="list-item">
+			A blockchain (<span class="code">xencoind</span> and <span class="code">xencoin-qt</span>), implementing XenCoin as a cryptocurrency, being used as tokens to use computing machines.
+		</li>
+	</ul>
+
+	<h3 class="section-title" id="section-dcv">
+		Distributed Computations and Virtualization
+	</h3>
+	<p class="section-text">
+		The world of High-Performance Computing (HPC) contains many sub-segments, that compose the global software market. HPC may include big-data, number-crunching, MapReduce, text analytics, predictive, or molecular dynamics tasks. Publishers are typically commercial companies, research institutes, individual researchers and developers, and certain custom applications. HPC and big-data are major, if not the largest segments of the global software market. For example, as of 2013, more than half of the Fortune 50 companies use Apache Hadoop, including Facebook and Yahoo. Hadoop is the leading solution of distributed computing, with extensive market adoption. There is a wide variety of applications over Hadoop. Moreover, Hadoop is only a part of the market. A full overview of this market is beyond the scope of this document. Notably, this market is where most of the money flows in the world of software nowadays.
+		<br>
+		<br>
+		Typical Xennet publishers do not need one virtual machine - they need thousands of them. Take, for example, protein folding related computations. A single researcher wants to fold a certain protein. It would take him days or weeks to run computations on the university's computer labs, if he gets lucky enough to get access to the university's computation resources. He may get even luckier and have F@H fold it for him. But for most researchers, AWS may be the only practical option. Unfortunately, it would probably be too expensive. We will emphasize the latter point when we get into the accounting. But for now, we note that our researcher already has software that distributes the work  (e.g. <span class="code">gromacs</span>). All he needs is tons of metals.
+		<br>
+		<br>
+		Nowadays, the distributed computing market is pretty mature. From a software perspective, a wide variety of solutions are available, accessible by everyone. But there is a steadily increasing demand for more hardware and more computation power. Hardware is the current bottleneck in massive computations.
+		<br>
+		<br>
+		Note that when a distributed application is considered, size equals speed: if I have x10 more machines, I'll fold my protein ~x10 times faster. Since Xennet is open for everyone to monetize their hardware (PC, laptop, mobile), we expect it to be the largest supercomputer in the world, by far, hence the fastest for distributed tasks. This is another potential advantage of Xennet.
+		<br>
+		<br>
+		Now imagine our researcher sitting at home, typing something like <span class="code">'xennet -n 100 -m 512M'</span>, and instantly receiving a list of 100 local ports to which he can ssh without a password (thanks to ssh asymmetric key mechanism). Each port leads him to a different remote host with 512MB of RAM.
+		<br>
+		<br>
+		Note the difference between the new generation, Docker-like, so-called OS-virtualization, and between traditional, virtualbox-like full virtualization.
+		<br>
+		<br>
+		Please refer to <a href="#appendix1" class="apx">Appendix I</a> below for a brief description of Docker.
+		<br>
+		<br>
+		As mentioned above, there are still some open questions. What is the billing scheme? How can you price the outcome? How are measurements taken and agreed? What if one side tries to cheat, either through resource consumption or false computation? In what way does the behavior of XenCoin's Blockchain differ from Bitcoin's one?
+	</p>
+
+	<h3 class="section-title" id="section-pricing">
+		Pricing and Measurements
+	</h3>
+	<p class="section-text">
+		Usage measurement is done by reading accumulated consumption data from <span class="code">procfs</span> (a Linux standard that is able to provide this info). The contract between the parties contains the rate per each component (such as CPU instructions/cycles/time, user time, kernel time, memory reads/writes, disk/network read/write, GPU usage etc.). Therefore every several seconds they both read the data and exchange transactions according to the agreed rates as in their contract.
+		<br>
+		<br>
+		In computational power rental, there is an inherent uncertainty regarding the value of each consumed unit - for example CPU time. One second on one CPU may not be as valuable as one second on another CPU, even if their clock rates are equal. This depends on the specific CPU architecture and features, among many other variables which are practically unknown.
+		<br>
+		<br>
+		In order to estimate the value of the resources, <span class="code">xennet-os</span> first runs some standard benchmarks, while recording the <span class="code">procfs</span> measurements during each benchmark. We chose  <a class="link" href="http://www.phoronix-test-suite.com/" target="_blank">phoronix-test-suite</a> as our benchmarking system. 
+		<br>
+		<br>
+		Please refer to <a href="#appendix2" class="apx">Appendix II</a> to get some background regarding phoronix.
+		<br>
+		<br>
+		After <span class="code">procfs</span> measurements of some standard task are taken (standard benchmark), data now has to be cleaned from inter-correlations. The connection between the hidden variables and the measurements needs to be found. This will be done using my following algorithm:
+	</p>	
+	<img class="section-image" src="images/algorithm1.jpg">
+	<p class="section-text">
+		The gross price of running a certain benchmark is determined by negotiation between the parties. All the rest is followed by the formula, which translates this information (for many benchmarks) into pricing that depends on <span class="code">procfs</span> variables.
+	</p>
+
+	<h3 class="section-title" id="section-trust">
+		Trust
+	</h3>
+	<p class="section-text">
+		The Provider might try to cheat and declare better benchmark scores, or maliciously interfere in <span class="code">xennet-os</span> in order to fake the measurements. He may even maliciously modify the computation. Such cases are handled by the following paradigms:
+	</p>
+	<ul class="list unordered-list">
+		<li class="list-item">
+			Since we use the micropayments protocol, the exposure is bound to short periods of time. Under no circumstances, a few lost seconds of computation should cause a significant financial loss.
+		</li>
+		<br>
+		<li class="list-item">
+			Publishers, which naturally require many computers, can keep only the most economic part of them. For example, they can hire 10K machines, and after 15 seconds drop the least efficient 5K.
+		</li>
+		<br>
+		<li class="list-item">
+			There is an incentive for both sides to maintain a fixed address, so their reputation will be public. In addition, every node will record historical information regarding nodes it worked with.
+		</li>
+		<br>
+		<li class="list-item">
+			For the case of malicious output modification and without countable reputation, risk can be decreased exponentially by performing computations several times.
+		</li>
+	</ul>
+
+	<h3 class="section-title" id="section-blockchain">	
+		The Blockchain
+	</h3>
+	<p class="section-text">
+		If you're unfamiliar with <a class="link" href="http://en.wikipedia.org/wiki/Bitcoin" target="_blank">Bitcoin</a> and <a class="link" href="http://en.wikipedia.org/wiki/Bitcoin_network" target="_blank">Blockchain</a>, please get yourself familiar with the related information on Wikipedia by following the above two links. Focus on the Blockchain algorithm, which is the core technology of decentralization, distribution and frictionless value transmission.
+		<br>
+		<br>
+		Note: Regular Blockchain transactions are not frictionless and require transaction fees. On Xennet, ongoing payments are frictionless thanks to the Micropayment algorithm, which is well known and trusted in the world of Blockchain algorithms. Transaction fees will be paid once the accumulated bill is redeemed, and not on every microtransaction.
+		<br>
+		<br>
+		One would naturally ask: why isn't Xennet planned to be implemented over Bitcoin? The answer is mainly the following: in order to initiate a micropayment channel, it is necessary to deposit money in a multisig address, and the other party has to wait for confirmations of this deposit. This can make the waiting time for the beginning of work to last 30-90 minutes, which is definitely unacceptable.
+		<br>
+		<br>
+		On the other hand, shortening the block time can put the network at risk. Therefore, and for other reasons, the following features are different on XenCoin's chain compared with the Bitcoin's one:
+	</p>
+	<ul class="list unordered-list">
+		<li class="list-item">
+		Bearing in mind that the time it takes the block to propagate over the network is a crucial factor influencing the risk of attacks, the following modifications are being considered:
+		</li>
+		<br>
+		<ul class="list unordered-list inner-list">
+			<li class="list-item">
+				Blocks will be transferred compressed. Huffman compression can be a good candidate.
+			</li>
+			<br>
+			<li class="list-item">
+				Blocks will be transferred asynchronously: when one node begins to receive a block, it immediately broadcasts its partial data as it receives it. Of course, nodes will validate the whole block and discard it in case it's invalid.
+			</li>
+		</ul>
+		<br>
+		<li class="list-item">
+			Ethereum GHOST-like implementation of stale blocks is considered, which increases the speed dramatically while maintaining the same risk. Please refer to <a href="#appendix3" class="apx">Appendix III</a> for information about this mechanism.
+		</li>
+		<br>
+		<li class="list-item">
+			Proof-of-Stake combined with Proof-of-Work are considered, upon their various variants.
+		</li>
+		<br>
+		<li class="list-item">
+			GPU or CPU/GPU mining algorithms are considered, or a new one, based on common PC capabilities. 
+			<br>
+			<br>
+			Algorithm sketch: 
+			<br>
+			<div class="algorithm">
+				Let k be a parameter (typically 10 if we want it both ASIC and GPU resistant nowadays). We prepare a memory mapped file of size k^k bytes. We treat this memory as a k-dimensional array, having k indices each running from 1 to k. 
+				<br>
+				The value at a certain multi-index is calculated recursively as follows: the last byte of the hash of the string combined from taking the k bytes taken by decreasing each single index by 1. 
+				<br>
+				<br>
+				Example: if k=2, then: <span class="code"> m[i][j] = hash(concat(m[i-1][j], m[i][j-1))</span>. The zero indices return the first k bytes of the hash of the block header. Finally, we hash the whole k^k scratchpad, and compare the result to the desired target.
+			</div>
+		</li>
+		<br>
+		<li class="list-item">
+			Propagate only block header and transaction hashes. Nodes typically have the transactions themselves, otherwise they can be retrieved from peers.
+		</li>
+		<br>
+		<li class="list-item">
+			Not all of the transaction fees are paid to miners: it begins with (for example) 90%-10% where 10% goes the to miners and the rest is destroyed (in order to create a deflationary effect), and upfront upon halving of the block reward, the miners' share of the fees is doubled. So if we plan to have N halvings, miners' part in fee starts with 2 to the -N.
+		</li>
+		<br>
+		<li class="list-item">
+			Lamport signatures (rather than ECDSA) are considered, in order to be more secured against Quantum-Computing-like future possible threats.
+		</li>		
+	</ul>
+
+	<p class="section-text">
+		<span class="note">Edit: We now focus on Delegated Proof-of-Stake. This obviously changes many of the above points.</span>
+
+		Another important feature of the Blockchain, which already exists in Bitcoin 0.9, is Class C transactions. All announcements should be prunable using this class, hence not blowing the chain.
+	</p>
+
+	<h3 class="section-title" id="section-economics">	
+		Economic Aspects
+	</h3>
+	<p class="section-text">
+		Xennet presents new economical aspects, both to the traditional economy and to the world of cryptocurrencies.
+		<br>
+		<br>
+		See below some properties of XenCoin from an economic point of view:
+		</p>
+		<ul class="list unordered-list">			
+			<li class="list-item">
+				XenCoin is not a currency. It is not meant to be a method of payment used in everyday business transactions. Its purpose and design goal are to be a token for activating computational machines.
+			</li>
+			<br>
+
+			<li class="list-item">
+				XenCoin has a real intrinsic value, as it is fully backed by the right to use a certain amount of computation power.
+			</li>
+			<br>
+			<li class="list-item">
+				XenCoin can be monetized by using it to rent computational power used for mining cryptocurrencies. One may choose any cryptocurrency one likes, and this provides liquidity.
+			</li>
+		</ul>
+
+	<p class="section-text">
+		Such initial intrinsic value and liquidability has not yet been presented in the world of cryptocurrency to my knowledge. 
+		<br>
+		<br>
+		People naturally query the main differences between Xennet and AWS. Amazon Web Services is the biggest firm renting computational power. See below a table presenting a comparison:
+	</p>
+
+	<table>
+	<th>
+	</th>
+	<th id="aws">
+		AWS
+	</th>
+	<th id="xennet">
+		Xennet
+	</th>
+
+	<tr>
+		<td>
+			Target Audience
+		</td>
+		<td>
+			Distributed and Non-Distributed computation consumers
+		</td>
+		<td>
+			Distributed computation consumers
+			<br>
+			<br>
+			<span class="table-footnote">The reason is that Xennet cannot guarantee uptime of a machine. Still, Xennet will serve as a platform for many applications used by audience much wider than the distributed computing consumers. Examples are XenFS and XenTube, as described in the <a class="link" href="https://github.com/Xennet/xennetdocs" target="_blank">RFC</a>.</span>
+
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			Billing
+		</td>
+		<td>
+			Rough
+			<br>
+			<br>
+			On AWS you frequently pay for servcies that you do not consume. 
+			<br>
+			<br>
+			<span class="table-footnote">For example, if the CPU was only 10% used, you might still pay for full usage.</span>
+		</td>
+		<td>
+			Precise
+			<br>
+			<br>
+			On Xennet, accurate resource consumption is taken from procfs, with a mathematical method to best fit the unknown principal components.
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			Hardware
+		</td>
+		<td>
+			Must be purchased seperately by provider
+		</td>
+		<td>
+			Already owned by the public.
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			Footprint
+		</td>
+		<td>
+			Large
+			<br>
+			<br>
+			1% of world's electricity goes to clouds, a huge amount of electronic waste
+		</td>
+		<td>
+			Small
+			<br>
+			<br>
+			Saves orders of magnitudes of energy thanks to the next-generation OS-Virtualization technologies.
+			<br>
+			Dramatically lowers manufacturing of new hardware and electronic waste.	
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			Peripheral / Operational Costs
+		</td>
+		<td>
+			Area, buildings, employees, administration
+		</td>
+		<td>
+			None
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			Custom Hardware
+		</td>
+		<td>
+			Narrow Range
+		</td>
+		<td>
+			Wide Range
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			Centralization
+		</td>
+		<td>
+			Centralized
+			<br>
+			<br>
+			<span class="table-footnote">What if tomorrow something terrible happens at AWS?</span>
+		</td>
+		<td>
+			Decentralized
+			<br>
+			<br>
+			Once it's out, it'll be always there. No one can intervene, no one can stop it, not even Xennet's developers.
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			Fairness
+		</td>
+		<td>
+			Fair
+			<br>
+			<br>
+			AWS are allowed and welcome to profit.
+		</td>
+		<td>
+			Extra-fair
+			<br>
+			<br>
+			Xennet divides the profit to the crowd. No one takes any kind of commission in the middle.
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			Profit
+		</td>
+		<td>
+			Revenue is divided between covering costs and profit for individuals
+		</td>
+		<td>
+			No operational costs. 
+			<br>
+			Profit is spread to the people granting access to their computation power, regardless of their location in the globe or their financial abilities.
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			Speed/Size Potential
+		</td>
+		<td>
+			Order of magnitude of industry
+		</td>
+		<td>
+			Order of magnitude of all computing devices world-wide
+			<br>
+			<br>
+			<span class="table-footnote">Recall that size equals speed when regarding distributed applications. In x10 larger network, the protein will fold ~x10 times faster</span>.
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			Ease of use
+		</td>
+		<td>
+			Difficult
+			<br>
+			<br>
+			Many configruations, registration, credit card, custom API...
+		</td>
+		<td>
+			Easy
+			<br>
+			<br>
+			One command and you gain a passwordless ssh access to as many machines as you want.
+			<br>
+			<br>
+			<span class="table-footnote">Architecture and pricing model poses highly decreased dependency on instance types (RAM, CPUs etc), since Xennet is optimized for distributed uses rather than singleton instances.</span>
+		</td>
+	</tr>
+	</table>	
+
+	<p class="section-text">
+		As one can easily see from the table, AWS is by no means close to achieving the benefits of Xennet.
+		Xennet's potential spreads far beyond the markets of cryptocurrencies and smart contracts. 
+		<br>
+		<br>
+		The computing resources market is much larger, with faster growth than the crypto market. A quick query about big data and high performance computing industry would lead to the conclusion that the numbers are at the many billions.
+	</p>
+
+	<h3 class="section-title" id="section-dev">
+		Development of Xennet
+	</h3>
+
+	<p class="section-text">
+		I began thinking of a distributed and decentralized arbitrary computation grid back at end of 2013. Initially I came up with an idea called HadoopCoin, which was meant to be a Hadoop based system. I did a lot of thinking since then, and focused on the virtualization kind of solutions. The  <a class="link" href="https://github.com/Xennet/xennetdocs">RFC</a> and <a class="link" href="https://docs.google.com/document/d/1Y-JKJtJrnGpEISgpEpGKqwmW-atg0_Uk2rJAH5YpaLc/edit#heading=h.8llwmxkra3of">SDD</a> documents still describe the traditional VM design. This current article was written after we have moved to OS virtualization.
+		<br>
+		<br>
+		My partners at Xennet are Amnon Dafni and Daniel Peled, demonstrating priceless talents and contributions. Together we are building a team of skilled professionals: developers, designers, scientists and more in order to make Xennet happen.
+		<br>
+		<br>
+		Development is progressing at full pace. We are currently hiring exceptional talents to join the development team. Skilled applicants who feel passion for the Xennet project may send their CV to <a class="link" href="mailto:xennet.dev@gmail.com">xennet.dev@gmail.com</a>. 
+		<br>
+		<br>
+		We are working hard to bring this huge benefit to the world as soon as possible. It will spread big money among many people, and give scientific research abilities that are magnitudes stronger than those currently at its disposal. What can be achieved with so many computers, one cannot even imagine.
+	</p>	
+
+	<p class="presale">* Presale is expected. Stay tuned *</p>
+
+	<div class="author-container" >
+		<span class="author-name">Ohad Asor</span>
+		<p class="date"> July 27, 2014 </p>	
+
+		<span class="author-info">
+			<a href="mailto:ohadasor@gmail.com" ><img src="http://icons.iconarchive.com/icons/designbolts/cute-social-2014/32/Email-icon.png"></a> 
+			<a href="http://il.linkedin.com/in/ohadasor" target="_blank"><img src="http://icons.iconarchive.com/icons/designbolts/cute-social-2014/32/Linkedin-icon.png"></a>
+		</span>
+	</div>
+	
+
+
+
+	<h3 class="section-title" id="section-appendices">
+		Appendices
+	</h3>
+
+	<h4 class="appendix-title" id="appendix1">
+		Appendix I: About Docker
+	</h4>
+
+	
+
+	<p class="appendix-text">
+		From <a class="link" href="http://en.wikipedia.org/wiki/Docker_(software)" target="_blank">Wikipedia</a>: 
+
+		<span class="appendix-quote">
+			Docker is an open-source project that automates the deployment of applications inside software containers.
+			<br>
+			<br>
+			The Linux kernel provides cgroups for resource isolation (CPU, memory, block I/O, network, etc.) that do not require starting any virtual machines. The kernel also provides namespaces to completely isolate an application's view of the operating environment, including process trees, network, user ids and mounted file systems. Docker makes use of libcontainer (https://github.com/docker/libcontainer) as the default execution environment. Libcontainer uses Linux kernel features such as cgroups, namespace support, apparmor profiles, networking interfaces, and firewall rules to provide an isolated environment for applications-- enabling image management and deployment services.
+			<br>
+			<br>
+			According to industry analyst firm 451 Research, "Docker is a tool that can package an application and its dependencies in a virtual container that can run on any Linux server. This helps enable flexibility and portability on where the application can run, whether on premise [sic], public cloud, private cloud, bare metal, etc."
+			<br>
+			<br>
+			Docker implements a high-level API to provide lightweight virtualization that runs processes in isolation. Using features of the Linux kernel itself - unlike traditional virtual machines, a Docker container does not require nor include a separate operating system. Instead, it relies on the kernel's functionality, through libcontainer, to make use of resource isolation (CPU, memory, block I/O, network, etc.) and separate namespaces to completely isolate the application's view of the operating environment.
+			<br>
+			<br>
+			The container technology in Docker can extend distributed systems so they run autonomously on a single physical machine or with a single instance per node. This enables the deployment of nodes as resources are available, thus providing seamless platform as a service (PaaS)-style deployment for systems like Apache Cassandra, Riak and related distributed systems.
+		</span>
+	</p>
+
+	<h4 class="appendix-title" id="appendix2">
+		Appendix II: About Phoronix
+	</h4>
+
+
+	<p class="appendix-text">
+		From <a class="link" href="http://en.wikipedia.org/wiki/Phoronix_Test_Suite" target="_blank">Wikipedia</a>:
+
+		<div class="appendix-quote">
+			Phoronix Test Suite (PTS) is a free, open-source benchmark software for Linux and other operating systems which is developed by Phoronix Media with cooperation from an undisclosed number of hardware and software vendors. The Phoronix Test Suite has been endorsed by sites such as Linux.com, LinuxPlanet and has been called "the best benchmarking platform" by Softpedia. The Phoronix Test Suite is also used by Tom's Hardware, ASELabs and other review sites.
+	
+			Features:
+
+			<ul class="list unordered-list appendix-list">	
+				<li class="list-item appendix-list-item">
+					Supports over 220 test profiles and over 60 test suites;
+				</li>
+				<li class="list-item appendix-list-item">
+					Uses an XML-based testing architecture. Tests include MEncoder, FFmpeg and lm sensors along with OpenGL games such as Doom 3, Nexuiz, and Enemy Territory: Quake Wars, and many others;
+				</li>
+				<li class="list-item appendix-list-item">
+					Contains a feature called PTS Global where users are able to upload their test results and system information for sharing. Then through executing a single command, other users can compare their test results to a selected system in an easy-comparison mode;
+				</li>
+				<li class="list-item appendix-list-item">
+					Allow report benchmark results to the Phoronix Global online database;
+				</li>
+				<li class="list-item appendix-list-item">
+					Allow compare results side-by-side;
+				</li>
+				<li class="list-item appendix-list-item">
+					Is extensible and new tests can be added easily;
+				</li>
+				<li class="list-item appendix-list-item">
+					Can do anonymous usage reporting;
+				</li>
+				<li class="list-item appendix-list-item">
+					Can do automated Git bisecting on a performance basis to find performance regressions. It features statistical significance verification.
+				</li>
+			</ul>
+		</div>
+	</p>
+
+	<p class="appendix-text">
+		Information from phoronix <a class="link" href="http://www.phoronix-test-suite.com" target="_blank">website</a>:
+
+		<div class="appendix-quote">
+			The Phoronix Test Suite interfaces with OpenBenchmarking.org as a collaborative web platform for the centralized storage of test results, sharing of test profiles and results, advanced analytical features, and other functionality. Phoromatic is an enterprise component to orchestrate test execution across multiple systems with remote management capabilities.
+
+			<span class="appendix-bold">Software Features </span>
+			<ul class="list unordered-list appendix-list">	
+				<li class="list-item appendix-list-item">
+					Runs On Linux, Solaris, Mac OS X, Windows & BSD Operating Systems
+				</li>
+				<li class="list-item appendix-list-item">
+					Extensible Testing Architecture
+				</li>
+				<li class="list-item appendix-list-item">
+					Embedded To Cloud Scale
+				</li>
+				<li class="list-item appendix-list-item">
+					450+ Test Profiles
+				</li>
+				<li class="list-item appendix-list-item">
+					100+ Test Suites
+				</li>
+				<li class="list-item appendix-list-item">
+					Automated Batch Mode Support
+				</li>
+				<li class="list-item appendix-list-item">
+					Automated Test Downloading & Installation
+				</li>
+				<li class="list-item appendix-list-item">
+					Dependency Management Support
+				</li>
+				<li class="list-item appendix-list-item">
+					Module-based Plug-In Architecture
+				</li>
+				<li class="list-item appendix-list-item">
+					Minimum / Average / Maximum Result Reporting
+				</li>
+				<li class="list-item appendix-list-item">
+					Standard Deviation Monitoring & Insurance
+				</li>
+				<li class="list-item appendix-list-item">
+					PNG, SVG Graph Rendering Support
+				</li>
+				<li class="list-item appendix-list-item">
+					PDF Result Reports
+				</li>
+				<li class="list-item appendix-list-item">
+					Detailed Software, Hardware Detection
+				</li>
+				<li class="list-item appendix-list-item">
+					System Monitoring Support
+				</li>
+				<li class="list-item appendix-list-item">
+					Commercial Support& Custom Engineering Available
+				</li>
+			</ul>
+
+			<span class="appendix-bold">OpenBenchmarking.org Features   </span>
+			<ul class="list unordered-list appendix-list">	
+				<li class="list-item appendix-list-item">
+					Global Database For Result Uploads, Benchmark Comparisons
+				</li>
+				<li class="list-item appendix-list-item">
+					Side-by-Side Results Comparisons
+				</li>
+				<li class="list-item appendix-list-item">
+					Performance Classifications
+				</li>
+				<li class="list-item appendix-list-item">
+					Crowd-Sourced Aggregated Results Analysis
+				</li>
+			</ul>
+
+
+			<span class="appendix-bold">Phoromatic Features</span>
+			<ul class="list unordered-list appendix-list">	
+				<li class="list-item appendix-list-item">
+					Conduct Tests Across Multiple Systems On A Schedule Basis
+				</li>
+				<li class="list-item appendix-list-item">
+					Per-Commit Git Testing
+				</li>
+				<li class="list-item appendix-list-item">
+					Multi-System Support
+				</li>
+				<li class="list-item appendix-list-item">
+					Turn-Key Deployment
+				</li>
+				<li class="list-item appendix-list-item">
+					Remote Testing
+				</li>
+			</ul>
+
+		</div>
+	</p>
+
+	<h4 class="appendix-title" id="appendix3">
+		Appendix III: GHOST-Like Ethereum Stale-Block Consideration
+	</h4>
+
+	<p class="appendix-text">
+		From Ethereum <a class="link" href="https://www.ethereum.org/pdfs/EthereumWhitePaper.pdf" target="_blank">whitepaper</a>:
+
+		<div class="appendix-quote">
+			The "Greedy Heaviest Observed Subtree" (GHOST) protocol is an innovation first introduced by Yonatan Sompolinsky and Aviv Zohar in December 2013. The motivation behind GHOST is that blockchains with fast confirmation times currently suffer from reduced security due to a high stale rate - because blocks take a certain time to propagate through the network, if miner A mines a block and then miner B happens to mine another block before miner A's block propagates to B, miner B's block will end up wasted and will not contribute to network security. Furthermore, there is a centralization issue: if miner A is a mining pool with 30% hashpower and B has 10% hashpower, A will have a risk of producing a stale block 70% of the time (since the other 30% of the time A produced the last block and so will get mining data immediately) whereas B will have a risk of producing a stale block 90% of the time. Thus, if the block interval is short enough for the stale rate to be high, A will be substantially more efficient simply by virtue of its size. With these two effects combined, blockchains which produce blocks quickly are very likely to lead to one mining pool having a large enough percentage of the network hashpower to have de facto control over the mining process.
+			<br>
+			<br>
+			As described by Sompolinsky and Zohar, GHOST solves the first issue of network security loss by including stale blocks in the calculation of which chain is the "longest"; that is to say, not just the parent and further ancestors of a block, but also the stale descendants of the block's ancestor (in Ethereum jargon, "uncles") are added to the calculation of which block has the largest total proof of work backing it. To solve the second issue of centralization bias, we go beyond the protocol described by Sompolinsky and Zohar, and also provide block rewards to stales: a stale block receives 87.5% of its base reward, and the nephew that includes the stale block receives the remaining 12.5%. Transaction fees, however, are not awarded to uncles.
+			<br>
+			<br>
+
+			Ethereum implements a simplified version of GHOST which only goes down one level. Specifically, a stale block can only be included as an uncle by the direct child of one of its direct siblings, and not any block with a more distant relation. This was done for several reasons. First, unlimited GHOST would include too many complications into the calculation of which uncles for a given block are valid. Second, unlimited GHOST with compensation as used in Ethereum removes the incentive for a miner to mine on the main chain and not the chain of a public attacker. Finally, calculations show that single-level GHOST has over 80% of the benefit of unlimited GHOST, and provides a stale rate comparable to the 2.5 minute Litecoin even with a 40-second block time. However, we will be conservative and still retain a Primecoin-like 60-second block time because individual blocks may take a longer time to verify.
+		</div>
+	</p>
+
+	
+</div>
+</body>
+</html>
