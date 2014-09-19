@@ -623,7 +623,7 @@ h2.diagram-title {
   height: 500px;
 }
 #image-works-1 {
-  background: url('../images/infogr/p5.jpg') no-repeat top;
+  background: url('../images/ann3.jpg') no-repeat top;
 }
 #works .works-section-title {
   /*color: #FF9933;*/

@@ -535,7 +535,7 @@
                         <!-- <img class="social-icon social-icon-fb" src="images/svg/fb.svg"> -->
                         <!-- <object id="social-icon-fb" class="social-icon" data="images/svg/fb.svg" type="image/svg+xml"></object> -->
                     </a>
-                    <a class="social-icon-link" href="mailto:team@xennet.sc" >
+                    <a class="social-icon-link" href="mailto:team@zennet.sc" >
                         <i class="social-icon fa fa-envelope" id="email-icon"></i>
                         <!-- <i class="social-icon fa fa-paper-plane" id="email-icon"></i> -->
                     </a>
