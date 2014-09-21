@@ -38,13 +38,109 @@
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="./js/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="./js/modernizr.custom.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+    
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+    <style type="text/css"></style>
+<script type="text/javascript" >
+        var id,
+              coverHeight;
+
+        $('document').ready(function() {
+            var   duration = 300,
+                    hover = false;
+                                       
+            var backgroundColor = '#fffffa',
+                  headerWidth = '85%',
+                  isScrolled = false;//$('body').scrollTop() > coverHeight - 50;          
+
+            var bulletClick = function() {
+                    //var $el = $(this).parent().parent();
+                    var    $el = $(this).hasClass('bullet') ? $(this) : $(this).parent(),
+                            clicked = $el.attr('clicked') === 'true' ? true : false;
+
+                    if (!clicked) {
+                        $el.attr('clicked', true);
+                        $el.find('.bullet-icon-container').animate({'top': -50, 'opacity': 0}, duration);
+                        $el.find('.bullet-title').animate({'top': -30, 'opacity': 1}, duration);
+                        $el.find('.bullet-text').animate({'top': 50, 'opacity': 0}, duration);
+                        //$(this).find('.bullet-content').animate({'opacity': 0}, duration);
+
+                        $el.find('.bullet-overlay').delay(duration - 50).animate({'opacity': 1}, duration);
+                    }
+
+                    else {
+                        $el.find('.bullet-icon-container').animate({'top': 0, 'opacity': 1}, duration);
+                        $el.find('.bullet-title').animate({'top': '0', 'opacity': 1}, duration);
+                        $el.find('.bullet-text').animate({'top': '0', 'opacity': 1}, duration);
+                        $el.find('.bullet-overlay').animate({'opacity': 0}, duration);
+
+                        $el.attr('clicked', false);
+                        //setTimeout(function() {$el.attr('hover', false);}, 500);
+                    }
+            };            
+
+            var scrolled = function() {
+                        
+                var scrollTop = $(document).scrollTop();
+
+                if ( !isScrolled && scrollTop > coverHeight - 20) {
+                    $('.header .header-link').addClass('header-link-scrolled');
+                    $('.logo').addClass('header-link-scrolled');
+                    //$('.header').addClass('background-color');
+                    $('.header').addClass('header-scrolled');
+                    $('.menu-label').addClass('header-link-scrolled');
+                    isScrolled = true;
+
+                    $('.header-container').animate({'width': '100%'});
+                }
+                else if (isScrolled && scrollTop <= coverHeight - 20) {                 
+                    $('.header .header-link').removeClass('header-link-scrolled');
+                    $('.logo').removeClass('header-link-scrolled');
+                    //$('.header').removeClass('background-color')
+                    $('.header').removeClass('header-scrolled');
+                    $('.menu-label').removeClass('header-link-scrolled');
+                    isScrolled = false;
+
+                    $('.header-container').animate({'width': headerWidth});
+                }
+            }
+
+            coverHeight = $('.header-wrap').height();
+
+            $('.header-container').css({'width': headerWidth});
+
+            $('.bullet').click(bulletClick);
+            //$('.bullet-content').click(bulletClick);
+
+            $('.bullet-content').animate({'opacity': 1}, duration);
+            
+            $( window ).scroll(scrolled);
+            
+            scrolled();
+        });
+
+        /////////////////////////////////////////////////////////////
+        // Global Event Handlers
+        /////////////////////////////////////////////////////////////
+        $(window).resize(function() {
+            clearTimeout(id);
+            id = setTimeout(doneResizing, 500);
+            
+        }); 
+
+        /////////////////////////////////////////////////////////////
+        // Private Methods
+        /////////////////////////////////////////////////////////////   
+        function doneResizing(){
+            coverHeight = $('.header-wrap').height();             
+        }
+
+</script>
 
 </head>
 
@@ -356,8 +452,8 @@
         <div class="row">
             
             <div class="col-md-4">                
-                <h2 class="press-article-title"><a href="http://www.theregister.co.uk/2014/08/20/xennet_wants_your_machines_for_tradable_supercomputer_cloud/" target="_blank">The Register</a></h2>
-                <p class="press-article">"Zennet wants YOUR machines for tradable supercomputer cloud"</p> <!-- Description -->
+                <h2 class="press-article-title"><a href="http://www.theregister.co.uk/2014/08/20/zennet_wants_your_machines_for_tradable_supercomputer_cloud/" target="_blank">The Register</a></h2>
+                <p class="press-article">"Zennet	 wants YOUR machines for tradable supercomputer cloud"</p> <!-- Description -->
             </div><!-- col-lg-3 -->
                     
             <div class="col-md-4">                
@@ -366,7 +462,7 @@
             </div><!-- col-lg-3 --> 
                 
             <div class="col-lg-4">                
-                <h2 class="press-article-title"><a href="http://insidehpc.com/2014/08/new-xennet-hpc-cloud-free-market-alternative-aws/ " target="_blank">Inside HPC</a></h2>
+                <h2 class="press-article-title"><a href="http://insidehpc.com/2014/08/new-zennet-hpc-cloud-free-market-alternative-aws/ " target="_blank">Inside HPC</a></h2>
                 <p class="press-article">"New Zennet	 HPC Cloud to be Free-Market Alternative to AWS"</p> <!-- Description -->
             </div>
         </div>
@@ -439,7 +535,7 @@
                         <!-- <img class="social-icon social-icon-fb" src="images/svg/fb.svg"> -->
                         <!-- <object id="social-icon-fb" class="social-icon" data="images/svg/fb.svg" type="image/svg+xml"></object> -->
                     </a>
-                    <a class="social-icon-link" href="mailto:team@xennet.sc" >
+                    <a class="social-icon-link" href="mailto:team@zennet.sc" >
                         <i class="social-icon fa fa-envelope" id="email-icon"></i>
                         <!-- <i class="social-icon fa fa-paper-plane" id="email-icon"></i> -->
                     </a>

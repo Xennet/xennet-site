@@ -293,7 +293,7 @@ body {
 }
 .header.header-scrolled {
   /*border-bottom: 1px solid @headerMenuDark; */
-  background-color: #7f00ff;
+  background-color: #2e0de8;
 }
 .header.header-scrolled .header-container {
   border-bottom: 0;
@@ -415,11 +415,10 @@ body {
   text-align: center;
 }
 .vision-text {
-  width: 60%;
+  width: 70%;
   margin: auto;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
-  line-height: 170%;
 }
 /*------------------------------------*\
     $BULLETS
@@ -624,11 +623,11 @@ h2.diagram-title {
   height: 500px;
 }
 #image-works-1 {
-  background: url('../images/infogr/p5.jpg') no-repeat top;
+  background: url('../images/ann3.jpg') no-repeat top;
 }
 #works .works-section-title {
   /*color: #FF9933;*/
-  color: #7d9808;
+  color: #9db828;
 }
 /*------------------------------------*\
     $PRESS
@@ -644,7 +643,7 @@ h2.diagram-title {
         color: white;*/
   font-family: 'Roboto Slab', serif;
   /*font-weight: bold;*/
-  color: #7d9808;
+  color: #9db828;
   /*color: #FF9933;*/
 }
 .press-article-title a:hover {
@@ -687,29 +686,6 @@ h2.diagram-title {
   height: 60px;
   line-height: 60px;
   /*background-color: rgba(70, 30, 170, 0.7);*/
-}
-/*------------------------------------*\
-    $RTL
-\*------------------------------------*/
-.rtl {
-  font-family: 'Open Sans Hebrew Condensed', serif;
-}
-.rtl .main-title {
-  font-family: 'Alef Hebrew', serif;
-}
-.rtl .bullet-title,
-.rtl .works-section-title,
-.rtl .com-link-title {
-  font-family: 'Alef Hebrew', serif;
-}
-.rtl .section-title {
-  font-family: 'Alef Hebrew', serif;
-}
-.rtl.navbar-collapse {
-  float: left;
-}
-.rtl.navbar-header {
-  float: right;
 }
 /*------------------------------------*\
     $MEDIA-QUERIES
