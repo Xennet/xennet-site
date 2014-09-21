@@ -58,17 +58,49 @@
 @mantisGreen: #74C365;
 @chartreuseYellow: #AFCF00;
 @limonitGreen: #94c315;
+@OliveDark: #7D9808;
+
+@efratRed: #E82F50;
+@efratBlue: #2CD8D7;
+@efratTurquoiseDark: #1FA8A4;
+@efratTurquoiseLight: #7FE9E4;
+@efratPurple: #2E0DE8;
+@efratPurpleLight: #BE9DFF;
+@efratViolet: #1438F3;
+@efratYellowGreen: #9DB828;
+
+@violet: #7F00FF;
 
 @robotoSlab: 'Roboto Slab', serif;
 @signika: 'Signika', sans-serif;
 @lato: "Lato";
 
+@arima_heb: 'Arimo', sans;
+@alef_heb: 'Alef Hebrew', serif;
+@openSans_heb: 'Open Sans Hebrew Condensed', serif;
+
 /************************************/
 
-@highlightColor: @chartreuseYellow;
+@headerMenuDark: @violet;
+@headerMenuLight: white;
+@headerMenuLightHover: @efratPurpleLight;
+@highlightColor: @efratYellowGreen;
+@bulletTitleColor: @OliveDark;
+@coverColor: @headerMenuDark;
+
 @titleFont: @robotoSlab;
 @subTitleFont: @lato;
-@textFont: @signika;
+@textFont: @lato;
+@textFontWeight: 400;
+
+
+@titleFontHeb: @alef_heb;
+@subTitleFontHeb: @alef_heb;
+@textFontHeb: @openSans_heb;
+
+@coverPhoto: url('../images/abstract-purple.jpg');
+
+@headerHeight: 50px;
 
 html,
 body {
@@ -78,7 +110,7 @@ body {
 body {
     font-family:@textFont;
     line-height: 1.3;
-    font-weight: 300;
+    font-weight: @textFontWeight;
     font-size: 16px;
     color: #555;
 
@@ -87,7 +119,7 @@ body {
 }
 
 hr {
-    border-top: 1px solid #ccc;
+    /*border-top: 1px solid #ccc;*/
     position: relative;
     display: block;
     margin: 1em 0;
@@ -103,7 +135,7 @@ hr {
         left: 40%;
         width: 20%;
         height: 1px;
-        background: #eee;
+        /*background: #eee;*/
     }
 
 img {
@@ -151,33 +183,34 @@ textarea {
 
 .header-link {
     background-color: transparent !important;
-    color: white;
+    margin: 0 15px;
+    color: @headerMenuLight;
 
     &:hover {
-        color: @brightBlue;
+        color: @headerMenuLightHover;
     }
 
     &.header-link-scrolled {    
         font-weight: normal !important;
-        color: lightsteelblue;
+        color: white;
 
         &:hover {
-            color: steelblue;
+            color: @headerMenuLightHover;
         }
     }
 }
 
 .logo {
     &:hover {
-        color: @brightBlue;
+        color: @headerMenuLightHover;
     }
 }
 
 .logo.header-link-scrolled {
-    color: lightsteelblue;
+    color: white;
 
     &:hover {
-        color: steelblue;
+        color: @headerMenuLightHover;
     }
 }
 
@@ -206,14 +239,24 @@ textarea {
 \*------------------------------------*/
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Raleway', sans-serif;
+    /*font-family: 'Raleway', sans-serif;*/
+    font-family: @titleFont;
     font-weight: 300;
     color: #3b3b3b;
 }
 
+h1 {
+    font-size: 38px;
+    /*margin-bottom: 0;*/
+}
+
+h2 {
+    font-size: 26px;
+}
+
 p {
     margin-bottom: 25px;
-    line-height: 28px;
+    line-height: 23px;
 }
 
 .center {
@@ -369,51 +412,72 @@ body {
 .divider-bg-5 { background-image: url('http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_524000a90aaad_1.JPG'); } 
 /**/
 
-/*------------------------------------*\
-    $FOOTER
-\*------------------------------------*/
-.footer {
-    width: 100%;
-    margin: 0 auto;
-    padding: 35px 0 70px 0;
-    max-height: 500px;
-    display: table;
-    background-position: center center;
-    /*background-attachment: fixed;*/
-   /* background-color: #3c4e60;*/
-   
-    z-index: 999;
 
+
+    /*------------------------------------*\
+    $HEADER
+\*------------------------------------*/
+.header {
+    padding: 0 40px;
+
+    &.header-scrolled {
+        /*border-bottom: 1px solid @headerMenuDark; */
+        background-color: @headerMenuDark;
+
+        .header-container {
+            border-bottom: 0;
+            
+        }
+    }
+}
+
+.header-container {
+    height: @headerHeight;
+    /*padding-top: 8px;*/
+    border-bottom: 1px solid @headerMenuLight; 
+
+    
+}
+.header-wrap {
+    /*background-color: @coverColor;*/
+    /*background: url('../images/abstract.jpg');*/
+    background: @coverPhoto;
+
+    /*background: url('http://sangil-test.comze.com/images/circuit-board-2.jpg') no-repeat center top;*/
+    /*background: url('http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_524000a90aaad_1.JPG') no-repeat center top;*/
+    /*background: url('http://openclipart.org/people/tagawa/circuit-board.svg') no-repeat center top;*/
+    padding-top: 40px;
+    margin-top: -50px;
+    height: 750px;
+    width: 100%;
+    
     -webkit-background-size: 100%;
        -moz-background-size: 100%;
             background-size: 100%;
-    
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-    
+
     -webkit-background-size: cover;
        -moz-background-size: cover;
             background-size: cover;
 }
 
-    .footer h1 {
-        font-size: 40px;
-        color: #f4f4f4;
-        padding-top: 70px;
+    .header-wrap h1 {
+        font-size: 100px;
+        /*font-weight: bold;*/
+        padding-bottom: 10px;
+        margin-top: 270px;
+        color: #ecf0f1;
+        font-variant: small-caps;
     }
 
-    .footer p {
-        color: #f4f4f4;
-        font-size: 20px;
+    .header-wrap p {
+        font-size: 38px;
+        font-weight: 300;
+        line-height: 26px;
+        letter-spacing: 0.5px;
+        color: #ecf0f1;
     }
 
-    .social-footer {
-           padding-top: 5px;
-           height: 60px;
-           line-height: 60px;
-           /*background-color: rgba(70, 30, 170, 0.7);*/
-    }
+
 /*------------------------------------*\
     $NAVIGATION
 \*------------------------------------*/
@@ -454,6 +518,7 @@ body {
     /*color: #999;*/
     /*color: #fff;*/
     background-color: transparent;
+    border-bottom: 1px solid white;
     /*font-weight: 500;*/
 }
 
@@ -501,49 +566,6 @@ body {
     font-weight: bold;*/
     /*color: white;*/
 }
-/*------------------------------------*\
-    $HEADER
-\*------------------------------------*/
-.header-container {
-    height: 70px;
-    padding-top: 8px;
-    border-bottom: 1px solid steelblue; 
-}
-.header-wrap {
-    background: url('../images/abstract.jpg');
-    /*background: url('http://sangil-test.comze.com/images/circuit-board-2.jpg') no-repeat center top;*/
-    /*background: url('http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_524000a90aaad_1.JPG') no-repeat center top;*/
-    /*background: url('http://openclipart.org/people/tagawa/circuit-board.svg') no-repeat center top;*/
-    padding-top: 40px;
-    margin-top: -50px;
-    height: 750px;
-    width: 100%;
-    
-    -webkit-background-size: 100%;
-       -moz-background-size: 100%;
-            background-size: 100%;
-
-    -webkit-background-size: cover;
-       -moz-background-size: cover;
-            background-size: cover;
-}
-
-    .header-wrap h1 {
-        font-size: 100px;
-        /*font-weight: bold;*/
-        padding-bottom: 10px;
-        margin-top: 270px;
-        color: #ecf0f1;
-        font-variant: small-caps;
-    }
-
-    .header-wrap p {
-        font-size: 38px;
-        font-weight: 300;
-        line-height: 26px;
-        letter-spacing: 0.5px;
-        color: #ecf0f1;
-    }
 
 
 /*------------------------------------*\
@@ -555,10 +577,11 @@ body {
 }
 
 .vision-text {
-    width: 70%;
+    width: 60%;
     margin: auto;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
+    line-height: 170%;
 }
 /*------------------------------------*\
     $BULLETS
@@ -571,6 +594,7 @@ body {
 
 .bullet {
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .bullet-content {
@@ -587,6 +611,7 @@ body {
     margin: auto;
     /*border: 1px solid red;*/
     z-index: 10;
+    cursor: pointer;
 }
 
 .bullet-icon-container {
@@ -631,6 +656,7 @@ i:hover {
     margin: auto;
     font-family: @titleFont;
     font-weight: 400;
+    cursor: pointer;
     /*width: 50%;*/
     /*float: right;*/
 }
@@ -640,6 +666,7 @@ i:hover {
     top: 0;
     left: 0;
     width: 100%;
+    cursor: pointer;
     /*width: 50%;*/
     /*float: right;   */
 }
@@ -648,14 +675,14 @@ i:hover {
     position: absolute;
     top: 0;
     left: 0;
-    /*height: 0;*/
+    width: 100%;
     opacity: 0;
     padding: 60px 20px 0px;
     margin: 0;
     cursor: pointer;
 
     height: 120px;
-    text-align: left !important;        
+    /*text-align: left !important;        */
 }
 
 .bullet-overlay-text {
@@ -707,8 +734,10 @@ i:hover {
 
     .feature-wrap p {
         padding: 15px 0 15px 0;
-        margin: 0 50px 0 50px;
-        letter-spacing: 1px;
+        margin: 0 10px 0 40px;
+        /*letter-spacing: 1px;*/
+        text-align: left;
+        letter-spacing: 0.5px;
     }
 
 
@@ -812,7 +841,7 @@ h2.diagram-title {
 
 #works .works-section-title {
     /*color: #FF9933;*/
-    color: @highlightColor;
+    color: @bulletTitleColor;
 }
 
 
@@ -832,12 +861,89 @@ h2.diagram-title {
 
         font-family: @titleFont;
         /*font-weight: bold;*/
-        color: @highlightColor;
+        color: @bulletTitleColor;
         /*color: #FF9933;*/
 
         &:hover {
                 opacity: 0.5;
         }
+}
+
+/*------------------------------------*\
+    $FOOTER
+\*------------------------------------*/
+.footer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 35px 0 70px 0;
+    max-height: 500px;
+    display: table;
+    background-position: center center;
+    /*background-attachment: fixed;*/
+   /* background-color: #3c4e60;*/
+   
+    z-index: 999;
+
+    -webkit-background-size: 100%;
+       -moz-background-size: 100%;
+            background-size: 100%;
+    
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+            background-size: cover;
+}
+
+    .footer h1 {
+        font-size: 40px;
+        color: #f4f4f4;
+        padding-top: 70px;
+    }
+
+    .footer p {
+        color: #f4f4f4;
+        font-size: 20px;
+    }
+
+    .social-footer {
+           padding-top: 5px;
+           height: 60px;
+           line-height: 60px;
+           /*background-color: rgba(70, 30, 170, 0.7);*/
+    }
+
+/*------------------------------------*\
+    $RTL
+\*------------------------------------*/
+
+.rtl {
+
+    font-family:@textFontHeb;
+
+    .main-title {
+        font-family: @titleFontHeb;
+    }
+
+    .bullet-title,
+    .works-section-title,
+    .com-link-title {
+        font-family: @subTitleFontHeb;
+    }
+
+    .section-title {
+        font-family: @titleFontHeb;
+    }
+
+    &.navbar-collapse {
+        float: left;
+    }
+
+    &.navbar-header {
+        float: right;
+    }
 }
 
 /*------------------------------------*\
@@ -883,15 +989,54 @@ h2.diagram-title {
     }
 }
 
+
+/** MOBILE HEADER **/
 @media screen and (max-width:769px) {
+    .header {
+        height: @headerHeight;
+        padding: 0 20px;
+    }
+
+    .navbar-toggle {
+        margin-top: 0;
+        margin-right: 0;
+        padding: 0;
+    }
+
+    .navbar-brand {
+        padding: 15px 0;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: (@headerHeight - 1);
+        left: 0;
+        width: 100%;
+        margin: 0 !important;
+        padding-bottom: 10px;
+        background-color: rgba(0, 0, 0, 0.7); 
+    }
+
+    .navbar-inverse .navbar-nav > .active > a,
+    .navbar-inverse .navbar-nav > .active > a:hover,
+    .navbar-inverse .navbar-nav > .active > a:focus {
+        color: @headerMenuLightHover;
+        border-bottom: 0;
+        /*font-weight: 500;*/
+    }
+
+    .header-link {
+        text-align: center;
+    }
+
      .header-wrap {
         /*max-height: 550px;
         min-height: 550px;*/
         height: 400px;                
     }
 
-    .navbar-collapse {
-        background-color: rgba(0, 0, 0, 0.5); 
+    .menu-label {
+        line-height: 47px;
     }
 
     .header-wrap h1 { 
@@ -905,7 +1050,7 @@ h2.diagram-title {
     }
 
     .works-section-text {
-        text-align: center;
+
     }
 
     img.diagram-img {
@@ -931,7 +1076,7 @@ h2.diagram-title {
     .bullet {
         margin-bottom: 70px;
     }
-    
+
     .bullet-title {
         font-size: 24px;
     }

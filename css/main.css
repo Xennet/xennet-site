@@ -293,7 +293,7 @@ body {
 }
 .header.header-scrolled {
   /*border-bottom: 1px solid @headerMenuDark; */
-  background-color: #2e0de8;
+  background-color: #7f00ff;
 }
 .header.header-scrolled .header-container {
   border-bottom: 0;
@@ -415,10 +415,11 @@ body {
   text-align: center;
 }
 .vision-text {
-  width: 70%;
+  width: 60%;
   margin: auto;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
+  line-height: 170%;
 }
 /*------------------------------------*\
     $BULLETS
@@ -627,7 +628,7 @@ h2.diagram-title {
 }
 #works .works-section-title {
   /*color: #FF9933;*/
-  color: #9db828;
+  color: #7d9808;
 }
 /*------------------------------------*\
     $PRESS
@@ -643,7 +644,7 @@ h2.diagram-title {
         color: white;*/
   font-family: 'Roboto Slab', serif;
   /*font-weight: bold;*/
-  color: #9db828;
+  color: #7d9808;
   /*color: #FF9933;*/
 }
 .press-article-title a:hover {
@@ -686,6 +687,29 @@ h2.diagram-title {
   height: 60px;
   line-height: 60px;
   /*background-color: rgba(70, 30, 170, 0.7);*/
+}
+/*------------------------------------*\
+    $RTL
+\*------------------------------------*/
+.rtl {
+  font-family: 'Open Sans Hebrew Condensed', serif;
+}
+.rtl .main-title {
+  font-family: 'Alef Hebrew', serif;
+}
+.rtl .bullet-title,
+.rtl .works-section-title,
+.rtl .com-link-title {
+  font-family: 'Alef Hebrew', serif;
+}
+.rtl .section-title {
+  font-family: 'Alef Hebrew', serif;
+}
+.rtl.navbar-collapse {
+  float: left;
+}
+.rtl.navbar-header {
+  float: right;
 }
 /*------------------------------------*\
     $MEDIA-QUERIES
