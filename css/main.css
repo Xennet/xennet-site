@@ -696,11 +696,16 @@ h2.diagram-title {
 }
 .rtl .main-title {
   font-family: 'Alef Hebrew', serif;
+  padding-bottom: 0;
+}
+.rtl .sub-title {
+  font-family: 'Open Sans Hebrew Condensed', serif;
+  font-size: 30px;
 }
 .rtl .bullet-title,
 .rtl .works-section-title,
 .rtl .com-link-title {
-  font-family: 'Alef Hebrew', serif;
+  font-family: 'Open Sans Hebrew Condensed', serif;
 }
 .rtl .section-title {
   font-family: 'Alef Hebrew', serif;
