@@ -863,10 +863,13 @@ h2.diagram-title {
 }
 
 #works .col-sm-4 {
-    height: 350px;
+    height: 280px;
     padding: 0 20px;
-    /*font-weight: bold;*/
     font-size: 14px;
+
+     .works-section-title {
+        margin-top: 0;
+    }
 }
 
 #works .col-left,
@@ -1014,7 +1017,9 @@ h2.diagram-title {
         margin: 0 40px 0 10px;
     }
 
-    
+    #works .col-sm-4 {
+
+    }
 }
 
 /*------------------------------------*\
@@ -1034,8 +1039,8 @@ h2.diagram-title {
         margin: 0 10px;
     }
 
-     #works .col-sm-4 {
-        height: auto;
+    #works .col-sm-4 {
+        height: 300px;
    }
 
     .bullet {
@@ -1045,6 +1050,16 @@ h2.diagram-title {
     .info-link-col {
         margin-top: 20px;
         margin-bottom: 10px;
+    }
+
+    #diagram {
+        margin-top: 30px;
+    }
+
+    .rtl {
+        #works .col-sm-4 {
+            height: 250px;
+       }
     }
 }
 
@@ -1057,6 +1072,14 @@ h2.diagram-title {
     #community-container,
     #email-container {
         padding: 0;
+    }
+
+    #works .col-sm-4 {
+        height: 370px;
+   }
+
+    #diagram {
+        margin-top: 50px;
     }
 }
 
@@ -1133,14 +1156,29 @@ h2.diagram-title {
         margin: 0 30px 80px;
     }
 
+    #works {
+         height: 800px;
+    }
+
    #works .col-sm-4 {
         border-right: 0;
+        height: 240px;
    }
 
     .info-link-col {
         margin-top: 0;
     }
 
+}
+
+@media screen and (max-width:500px) {
+    #works {
+         height: 1000px;
+    }
+
+    #works .col-sm-4 {
+        height: 280px;
+   }
 }
 
 @media screen and (max-width:450px) {

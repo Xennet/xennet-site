@@ -638,10 +638,12 @@ h2.diagram-title {
   color: steelblue;
 }
 #works .col-sm-4 {
-  height: 350px;
+  height: 280px;
   padding: 0 20px;
-  /*font-weight: bold;*/
   font-size: 14px;
+}
+#works .col-sm-4 .works-section-title {
+  margin-top: 0;
 }
 #works .col-left,
 #works .col-middle {
@@ -772,7 +774,7 @@ h2.diagram-title {
     margin: 0 10px;
   }
   #works .col-sm-4 {
-    height: auto;
+    height: 300px;
   }
   .bullet {
     margin-bottom: 50px;
@@ -780,6 +782,12 @@ h2.diagram-title {
   .info-link-col {
     margin-top: 20px;
     margin-bottom: 10px;
+  }
+  #diagram {
+    margin-top: 30px;
+  }
+  .rtl #works .col-sm-4 {
+    height: 250px;
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
@@ -791,6 +799,12 @@ h2.diagram-title {
   #community-container,
   #email-container {
     padding: 0;
+  }
+  #works .col-sm-4 {
+    height: 370px;
+  }
+  #diagram {
+    margin-top: 50px;
   }
 }
 /** MOBILE HEADER **/
@@ -848,11 +862,23 @@ h2.diagram-title {
   .feature-wrap p {
     margin: 0 30px 80px;
   }
+  #works {
+    height: 800px;
+  }
   #works .col-sm-4 {
     border-right: 0;
+    height: 240px;
   }
   .info-link-col {
     margin-top: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  #works {
+    height: 1000px;
+  }
+  #works .col-sm-4 {
+    height: 280px;
   }
 }
 @media screen and (max-width: 450px) {
