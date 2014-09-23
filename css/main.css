@@ -23,9 +23,36 @@
  * MEDIA-QUERIES...........To make things responsive
  */
 /*------------------------------------*\
-    $BASE STYLES
+    $FONTS
+\*------------------------------------*/
+@font-face {
+  font-family: 'Carmela';
+  src: url('fonts/carmela/carmela.eot');
+  src: url('fonts/carmela/carmela.eot?#iefix') format('embedded-opentype'), url('fonts/carmela/carmela.woff') format('woff'), url('fonts/carmela/carmela.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Carmelit_bold';
+  src: url('fonts/carmelit/carmelitbold.eot');
+  src: url('fonts/carmelit/carmelitbold.eot?#iefix') format('embedded-opentype'), url('fonts/carmelit/carmelitbold.woff') format('woff'), url('fonts/carmelit/carmelitbold.ttf') format('truetype'), url('fonts/carmelit/carmelitbold.svg#carmelit_boldbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Carmelit';
+  src: url('fonts/carmelit/carmelitregular.eot');
+  src: url('fonts/carmelit/carmelitregular.eot?#iefix') format('embedded-opentype'), url('fonts/carmelit/carmelitregular.woff') format('woff'), url('fonts/carmelit/carmelitregular.ttf') format('truetype'), url('fonts/carmelit/carmelitregular.svg#carmelit_regularregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/*------------------------------------*\
+    $VARIABLES
 \*------------------------------------*/
 /************************************/
+/*------------------------------------*\
+    $BASE STYLES
+\*------------------------------------*/
 html,
 body {
   height: 100%;
@@ -693,14 +720,22 @@ h2.diagram-title {
 \*------------------------------------*/
 .rtl {
   font-family: 'Open Sans Hebrew Condensed', serif;
-}
-.rtl .main-title {
-  font-family: 'Alef Hebrew', serif;
-  padding-bottom: 0;
+  /*
+    .main-title {
+        font-family: @titleFontHeb;
+        font-size: 120px;
+        line-height: 90px;
+        padding-bottom: 0;
+    }
+*/
 }
 .rtl .sub-title {
   font-family: 'Open Sans Hebrew Condensed', serif;
   font-size: 30px;
+}
+.rtl .vision-text {
+  font-size: 24px;
+  font-weight: 400;
 }
 .rtl .bullet-title,
 .rtl .works-section-title,
@@ -708,13 +743,21 @@ h2.diagram-title {
   font-family: 'Open Sans Hebrew Condensed', serif;
 }
 .rtl .section-title {
-  font-family: 'Alef Hebrew', serif;
+  font-family: 'Carmelit', sans;
+}
+.rtl .section-title span.zennet-name {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
 }
 .rtl.navbar-collapse {
-  float: left;
+  float: right;
 }
 .rtl.navbar-header {
-  float: right;
+  float: left;
+}
+.rtl .feature-wrap p {
+  text-align: right;
+  margin: 0 40px 0 10px;
 }
 /*------------------------------------*\
     $MEDIA-QUERIES

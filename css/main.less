@@ -25,10 +25,48 @@
  * MEDIA-QUERIES...........To make things responsive
  */
 
+/*------------------------------------*\
+    $FONTS
+\*------------------------------------*/
+
+@font-face {
+    font-family: 'Carmela';
+    src: url('fonts/carmela/carmela.eot');
+    src: url('fonts/carmela/carmela.eot?#iefix') format('embedded-opentype'),
+    url('fonts/carmela/carmela.woff') format('woff'),
+    url('fonts/carmela/carmela.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Carmelit_bold';
+    src: url('fonts/carmelit/carmelitbold.eot');
+    src: url('fonts/carmelit/carmelitbold.eot?#iefix') format('embedded-opentype'),
+         url('fonts/carmelit/carmelitbold.woff') format('woff'),
+         url('fonts/carmelit/carmelitbold.ttf') format('truetype'),
+         url('fonts/carmelit/carmelitbold.svg#carmelit_boldbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Carmelit';
+    src: url('fonts/carmelit/carmelitregular.eot');
+    src: url('fonts/carmelit/carmelitregular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/carmelit/carmelitregular.woff') format('woff'),
+         url('fonts/carmelit/carmelitregular.ttf') format('truetype'),
+         url('fonts/carmelit/carmelitregular.svg#carmelit_regularregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 /*------------------------------------*\
-    $BASE STYLES
+    $VARIABLES
 \*------------------------------------*/
+
 
 @darkBlue: #224275;
 @blueGrey: #38464a;
@@ -78,7 +116,8 @@
 @arima_heb: 'Arimo', sans;
 @alef_heb: 'Alef Hebrew', serif;
 @openSans_heb: 'Open Sans Hebrew Condensed', serif;
-
+@carmela_heb: 'Carmela', sans;
+@carmelit_heb: 'Carmelit', sans;
 /************************************/
 
 @headerMenuDark: @violet;
@@ -93,14 +132,19 @@
 @textFont: @lato;
 @textFontWeight: 400;
 
-
-@titleFontHeb: @alef_heb;
+@titleFontHeb: @carmelit_heb;
 @subTitleFontHeb: @openSans_heb;
 @textFontHeb: @openSans_heb;
+@zennetNameEng: @robotoSlab;
 
 @coverPhoto: url('../images/abstract-purple.jpg');
 
 @headerHeight: 50px;
+
+
+/*------------------------------------*\
+    $BASE STYLES
+\*------------------------------------*/
 
 html,
 body {
@@ -923,14 +967,23 @@ h2.diagram-title {
 
     font-family:@textFontHeb;
 
+/*
     .main-title {
         font-family: @titleFontHeb;
+        font-size: 120px;
+        line-height: 90px;
         padding-bottom: 0;
     }
+*/
 
     .sub-title {
         font-family: @subTitleFontHeb;
         font-size: 30px;
+    }
+
+    .vision-text {
+        font-size: 24px;
+        font-weight: 400;
     }
 
     .bullet-title,
@@ -941,15 +994,27 @@ h2.diagram-title {
 
     .section-title {
         font-family: @titleFontHeb;
+
+         span.zennet-name {
+            font-family: @zennetNameEng;
+            font-weight: 400;
+        }
     }
 
     &.navbar-collapse {
-        float: left;
+        float: right;
     }
 
     &.navbar-header {
-        float: right;
+        float: left;
     }
+
+    .feature-wrap p {
+        text-align: right;
+        margin: 0 40px 0 10px;
+    }
+
+    
 }
 
 /*------------------------------------*\
