@@ -35,10 +35,13 @@
         <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Signika:400,600,700' rel='stylesheet' type='text/css'>
 
+        <!-- Flags -->
+        <link href='./css/flag-icon.min.css' rel='stylesheet' type='text/css'>
+
         <!-- Scripts -->
-        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script src="./js/jquery.easing.1.3.js"></script>
-        <script type="text/javascript" src="./js/modernizr.custom.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="js/modernizr.custom.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,6 +77,11 @@
                     <a class="navbar-brand  smoothScroll" href="#home"><span class="logo">Zennet</span></a> <!-- Branding -->
                 </div>
                 <div class="navbar-collapse  collapse">
+                    <p class="nav  navbar-nav  navbar-right">                        
+                            <!-- a class="header-link header-link-flag flag-icon flag-icon-us grayscale"></a -->
+                            <a class="header-link header-link-flag flag-icon flag-icon-il grayscale" href="index_he.html"></a>
+                    </p>
+
                     <ul class="nav  navbar-nav  navbar-right">
                         <li class="active"><a href="#home" class="header-link smoothScroll">Home</a></li>
                         <!-- <li><a href="#vision" class="header-link smoothScroll">Our Vision</a></li> -->
@@ -82,8 +90,13 @@
                         <!-- <li><a href="#team" class="header-link smoothScroll">Team</a></li> -->
                         <li><a href="#press-target" class="header-link smoothScroll">Press</a></li>
                         <li><a href="#links" class="header-link smoothScroll">Info</a></li>
-                        <li><a href="#contact" class="header-link smoothScroll">Contact</a></li>
+                        <!-- -->
+                        <li><a href="#contact"  target="_blank" class="header-link smoothScroll">Contact</a></li>
+                        
+
+                        <!-- -->
                     </ul>
+
                 </div>
             </div>
         </div>
@@ -95,6 +108,7 @@
         <header class="clearfix">
             <h1 class="main-title animated fadeInUp">zennet</h1>
             <p class="sub-title animated  fadeInUp">the public supercomputer</p>
+
         </header>	    
     </div><!-- header ends -->
     
@@ -129,7 +143,7 @@
     <!-- #2 Divider with few words/quote -->
     <section class="divider  divider-bg-2   center" >
     </section>
-		
+
     <div class="container center" id="bullet" name="bullets">
     <br>
     
@@ -282,37 +296,34 @@
    <!--  <section class="divider  divider-bg-3  center">
     </section> -->
 
-    <!-- Team/staff section starts here -->
+    <!-- Team/staff section starts here --
     <div class="container center" id="team" name="team">
         <br>
         <div class="row  center">
             <br>
             <h1 class="section-title center" id="team-title">Meet The Team</h1>
             <p>some text about our team</p>
-            <!-- <hr> -->
+
             <br>
             <br>
             <br>
 
              <div class="col-lg-12  center team-container">
-                    <!-- Single team member -->
                     <div class="col-lg-2  center col-lg-offset-1">
                         <img class="img  img-circle  team-member" src="./images/ohad.jpg" height="130px" width="130px" alt="">
                         <br>
-                        <h4><b>Ohad Asor</b></h4> <!-- Name -->
-                         <p>Hi, I'm Ohad</p> <!-- Description -->
-                        <!-- <a href="#" class="icon icon-twitter"></a>
-                        <a href="#" class="icon icon-facebook"></a> -->
+                        <h4><b>Ohad Asor</b></h4> 
+                         <p>Hi, I'm Ohad</p> 
+                      
                        
-                    </div><!-- single team member ends -->
+                    </div>
 
                     <div class="col-lg-2  center">
                         <img class="img  img-circle  team-member" src="./images/amnon.jpg" height="130px" width="130px" alt="">
                         <br>
                         <h4><b>Amnon Dafni</b></h4>
                         <p>and I'm Amnon. </p>
-                        <!-- <a href="#" class="icon icon-twitter"></a>
-                        <a href="#" class="icon icon-facebook"></a> -->
+                
                         
                     </div>
 
@@ -321,8 +332,7 @@
                         <br>
                         <h4><b>Daniel Peled</b></h4>
                         <p>Peled. Daniel Peled</p>
-                        <!-- <a href="#" class="icon icon-twitter"></a>
-                        <a href="#" class="icon icon-facebook"></a> -->
+                 
                         
                     </div>   
 
