@@ -62,6 +62,7 @@ img.grayscale.disabled {
 /*------------------------------------*\
     $VARIABLES
 \*------------------------------------*/
+/*@violet: #7F00FF;*/
 /************************************/
 /*------------------------------------*\
     $BASE STYLES
@@ -349,7 +350,7 @@ body {
 }
 .header.header-scrolled {
   /*border-bottom: 1px solid @headerMenuDark; */
-  background-color: #7f00ff;
+  background-color: #655ad9;
 }
 .header.header-scrolled .header-container {
   border-bottom: 0;
@@ -524,7 +525,7 @@ body {
   cursor: pointer;
 }
 i {
-  color: #9db828;
+  color: #ff8f03;
   cursor: pointer;
   opacity: 0.9;
 }
@@ -689,7 +690,7 @@ h2.diagram-title {
 }
 #works .works-section-title {
   /*color: #FF9933;*/
-  color: #7d9808;
+  color: #ff8f03;
 }
 /*------------------------------------*\
     $PRESS
@@ -705,7 +706,7 @@ h2.diagram-title {
         color: white;*/
   font-family: 'Roboto Slab', serif;
   /*font-weight: bold;*/
-  color: #7d9808;
+  color: #ff8f03;
   /*color: #FF9933;*/
 }
 .press-article-title a:hover {
