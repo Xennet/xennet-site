@@ -139,8 +139,8 @@ img.grayscale.disabled {
 @headerMenuLight: white;
 @headerMenuLightHover: @efratPurpleLight;
 /*@highlightColor: @orange;*/
-@bulletTitleColor: @efratYellowGreen;
-@highlightColor: @bulletTitleColor;
+@bulletTitleColor: @violet;
+@highlightColor: @efratYellowGreen;
 @coverColor: @headerMenuDark;
 
 @titleFont: @robotoSlab;
@@ -155,7 +155,7 @@ img.grayscale.disabled {
 
 @coverPhoto: url('../images/abstract-purple.jpg');
 
-@headerHeight: 50px;
+@headerHeight: 60px;
 
 
 /*------------------------------------*\
@@ -228,9 +228,9 @@ textarea {
 
 .main-title {
     font-family: @titleFont;
-    font-size: 100px;
-    /*margin-top: 270px;*/
-    margin-top: 50px;
+    font-size: 140px; 
+    margin-top: 56px;
+    margin-bottom: 0;
     /*padding-bottom: 10px;*/
     /*color: #ecf0f1;*/
     color: @coverColor;
@@ -238,10 +238,10 @@ textarea {
 }
 
 .sub-title {
+    font-size: 32px;
+    line-height: 34px;
     font-family: @subTitleFont;
-    font-size: 38px;
     font-weight: 300;
-    line-height: 26px;
     letter-spacing: 0.5px;
     /*color: #ecf0f1;*/
     color: @coverColor;
@@ -291,21 +291,27 @@ textarea {
 }
 
 .logo {
-    font-size: 22px;
+    background: url('../images/logo-violet.png') no-repeat center top;
+    background-size: 100%;
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    /*font-size: 22px;
     color: @headerMenuDark;
 
     &:hover {
         color: @headerMenuLightHover;
-    }
+    }*/
 }
 
 .logo.header-link-scrolled {
-    /*color: white;*/
-    color: white;
+    background: url('../images/logo-white.png') no-repeat center top;
+    background-size: 100%;
+    /*color: white;
 
     &:hover {
         color: @headerMenuLightHover;
-    }
+    }*/
 }
 
 
@@ -533,16 +539,13 @@ body {
     height: @headerHeight;
     /*padding-top: 8px;*/
     border-bottom: 1px solid @headerMenuLight; 
-
-    
+    overflow: visible !important;
 }
+
 .header-wrap {
     /*background-color: @coverColor;*/
     /*background: @coverPhoto;*/
 
-    /*background: url('http://sangil-test.comze.com/images/circuit-board-2.jpg') no-repeat center top;*/
-    /*background: url('http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_524000a90aaad_1.JPG') no-repeat center top;*/
-    /*background: url('http://openclipart.org/people/tagawa/circuit-board.svg') no-repeat center top;*/
     padding-top: 40px;
     margin-top: -50px;
     /*height: 750px;*/
@@ -558,15 +561,7 @@ body {
             background-size: cover;
 }
 
- .header-wrap h1 { 
-    font-size: 72px; 
-    margin-top: 100px;
-}
 
-.header-wrap p {
-    font-size: 32px;
-    line-height: 34px;
-}
 /*------------------------------------*\
     $NAVIGATION
 \*------------------------------------*/
@@ -634,6 +629,7 @@ body {
 
 .navbar-brand {
     line-height: 19px;
+    padding: 0;
 }
 
 .navbar-fixed-top {

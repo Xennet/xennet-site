@@ -123,19 +123,19 @@ textarea {
 }
 .main-title {
   font-family: 'Roboto Slab', serif;
-  font-size: 100px;
-  /*margin-top: 270px;*/
-  margin-top: 50px;
+  font-size: 140px;
+  margin-top: 56px;
+  margin-bottom: 0;
   /*padding-bottom: 10px;*/
   /*color: #ecf0f1;*/
   color: #655ad9;
   font-variant: small-caps;
 }
 .sub-title {
+  font-size: 32px;
+  line-height: 34px;
   font-family: "Lato";
-  font-size: 38px;
   font-weight: 300;
-  line-height: 26px;
   letter-spacing: 0.5px;
   /*color: #ecf0f1;*/
   color: #655ad9;
@@ -178,18 +178,26 @@ textarea {
   -webkit-filter: grayscale(0%);
 }
 .logo {
-  font-size: 22px;
-  color: #655ad9;
-}
-.logo:hover {
-  color: #be9dff;
+  background: url('../images/logo-violet.png') no-repeat center top;
+  background-size: 100%;
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  /*font-size: 22px;
+    color: @headerMenuDark;
+
+    &:hover {
+        color: @headerMenuLightHover;
+    }*/
 }
 .logo.header-link-scrolled {
-  /*color: white;*/
-  color: white;
-}
-.logo.header-link-scrolled:hover {
-  color: #be9dff;
+  background: url('../images/logo-white.png') no-repeat center top;
+  background-size: 100%;
+  /*color: white;
+
+    &:hover {
+        color: @headerMenuLightHover;
+    }*/
 }
 .social-icon {
   width: 48px;
@@ -376,9 +384,10 @@ body {
   border-bottom: 0;
 }
 .header-container {
-  height: 50px;
+  height: 60px;
   /*padding-top: 8px;*/
   border-bottom: 1px solid #ffffff;
+  overflow: visible !important;
 }
 .header-wrap {
   /*background-color: @coverColor;*/
@@ -397,14 +406,6 @@ body {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-}
-.header-wrap h1 {
-  font-size: 72px;
-  margin-top: 100px;
-}
-.header-wrap p {
-  font-size: 32px;
-  line-height: 34px;
 }
 /*------------------------------------*\
     $NAVIGATION
@@ -460,6 +461,7 @@ body {
 }
 .navbar-brand {
   line-height: 19px;
+  padding: 0;
 }
 .navbar-fixed-top {
   border-width: 0 0 0;
@@ -698,7 +700,7 @@ h2.diagram-title {
 }
 #works .works-section-title {
   /*color: #FF9933;*/
-  color: #9db828;
+  color: #655ad9;
 }
 /*------------------------------------*\
     $PRESS
@@ -714,7 +716,7 @@ h2.diagram-title {
         color: white;*/
   font-family: 'Roboto Slab', serif;
   /*font-weight: bold;*/
-  color: #9db828;
+  color: #655ad9;
   /*color: #FF9933;*/
 }
 .press-article-title a:hover {
@@ -851,7 +853,7 @@ h2.diagram-title {
 /** MOBILE HEADER **/
 @media screen and (max-width: 769px) {
   .header {
-    height: 50px;
+    height: 60px;
     padding: 0 20px;
   }
   .navbar-toggle {
@@ -864,7 +866,7 @@ h2.diagram-title {
   }
   .navbar-collapse {
     position: absolute;
-    top: 49px;
+    top: 59px;
     left: 0;
     width: 100%;
     margin: 0 !important;
