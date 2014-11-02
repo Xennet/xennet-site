@@ -1,0 +1,93 @@
+.countdown.countdown-container {
+	/*position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	transform: translateY(-50%);*/
+	width: 100%;
+	padding: 30px 320px;
+	background-color: #655ad9; /*#ff8f03*/
+}
+
+.countdown .countdown-title {
+	width: 100%;
+	text-align: center;
+	font-family: @titleFont;
+	font-size: 64px;
+	padding-bottom: 30px;
+	margin-top: 20px;
+	color: white;
+	font-variant: small-caps;
+}
+
+.countdown .countdown-bullet {
+	padding: 0 30px;
+}
+
+.countdown .countdown-bullet-title {
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+	color: #9DB828;
+	margin: 30px 0 10px;
+}
+
+.countdown .countdown-bullet-text {
+	width: 100%;
+	margin: auto;
+	font-size: 14px;
+	color: #ddd;
+}
+
+.countdown .clock {
+
+	margin-bottom: 40px;
+	padding: 0 50px;
+}
+
+.countdown .clock-item .inner {
+	height: 0px;
+	padding-bottom: 100%;
+	position: relative;
+	width: 100%;
+}
+
+.countdown .clock-canvas {
+	background-color: rgba(255, 255, 255, .1);
+	border-radius: 50%;
+	height: 0px;
+	padding-bottom: 100%;
+}
+
+.countdown .text {
+	color: #fff;
+	font-size: 30px;
+	/*font-weight: bold;*/
+	margin-top: -28px;
+	position: absolute;
+	top: 50%;
+	text-align: center;
+	/*text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);*/
+	width: 100%;
+}
+
+.countdown .text .val {
+	font-size: 40px;
+	margin-bottom: 10px;
+}
+
+.countdown .text .type-time {
+	font-size: 16px;
+}
+
+ @media (min-width: 768px) and (max-width: 991px) {
+	.countdown .clock-item {
+	margin-bottom: 30px;
+	}
+}
+
+ @media (max-width: 767px) {
+	.countdown .clock-item {
+	margin: 0px 30px 30px 30px;
+	}
+}

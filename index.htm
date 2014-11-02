@@ -38,10 +38,15 @@
         <!-- Flags -->
         <link href='./css/flag-icon.min.css' rel='stylesheet' type='text/css'>
 
+        <!-- Countdown Timer -->
+        <link href='./css/countdown.css' rel='stylesheet' type='text/css'>
+
         <!-- Scripts -->
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="js/modernizr.custom.js"></script>
+        <script type="text/javascript" src="js/kinetic.js"></script>
+        <script type="text/javascript" src="js/jquery.final-countdown.js"></script> 
         <script type="text/javascript" src="js/main.js"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -106,13 +111,106 @@
     <!-- Header starts here -->
     <div class="header-wrap  center" id="home" name="home">
         <header class="clearfix">
-            <h1 class="main-title animated fadeInUp">zennet</h1>
-            <p class="sub-title animated  fadeInUp">the public supercomputer</p>
+            <h1 class="main-title ">zennet</h1>
+            <p class="sub-title">the public supercomputer</p>
 
         </header>	    
     </div><!-- header ends -->
+   
+<!-- COUNTDOWN TIMER --> 
+<div class="countdown-container container countdown">
+    <h2 class="countdown-title animated fadeInUp">zencoin presale is coming <span style="font-size: 70%">11/11 !</span></h2>
+    <div class="clock row">
     
-    
+            <div class="clock-item clock-days countdown-time-value col-sm-6 col-md-3">
+            <div class="wrap">
+            <div class="inner">
+            <div id="canvas_days" class="clock-canvas"></div>
+            <div class="text">
+            <p class="val">0</p>
+            <p class="type-days type-time">DAYS</p>
+            </div>
+            <!-- /.text --> 
+            </div>
+            <!-- /.inner --> 
+            </div>
+            <!-- /.wrap --> 
+            </div>
+            <!-- /.clock-item -->
+
+            <div class="clock-item clock-hours countdown-time-value col-sm-6 col-md-3">
+            <div class="wrap">
+            <div class="inner">
+            <div id="canvas_hours" class="clock-canvas"></div>
+            <div class="text">
+            <p class="val">0</p>
+            <p class="type-hours type-time">HOURS</p>
+            </div>
+            <!-- /.text --> 
+            </div>
+            <!-- /.inner --> 
+            </div>
+            <!-- /.wrap --> 
+            </div>
+            <!-- /.clock-item -->
+
+            <div class="clock-item clock-minutes countdown-time-value col-sm-6 col-md-3">
+            <div class="wrap">
+            <div class="inner">
+            <div id="canvas_minutes" class="clock-canvas"></div>
+            <div class="text">
+            <p class="val">0</p>
+            <p class="type-minutes type-time">MINUTES</p>
+            </div>
+            <!-- /.text --> 
+            </div>
+            <!-- /.inner --> 
+            </div>
+            <!-- /.wrap --> 
+            </div>
+            <!-- /.clock-item -->
+
+            <div class="clock-item clock-seconds countdown-time-value col-sm-6 col-md-3">
+            <div class="wrap">
+            <div class="inner">
+            <div id="canvas_seconds" class="clock-canvas"></div>
+            <div class="text">
+            <p class="val">0</p>
+            <p class="type-seconds type-time">SECONDS</p>
+            </div>
+            <!-- /.text --> 
+            </div>
+            <!-- /.inner --> 
+            </div>
+            <!-- /.wrap --> 
+            </div>
+            <!-- /.clock-item --> 
+    </div>
+    <!-- /.clock --> 
+        <div class="row">
+            <div class="col-md-4 countdown-bullet">
+                <div class="countdown-bullet-title">What is Zencoin?</div>
+                <div class="countdown-bullet-text">
+                     <span>Zencoin is the token used to rent computing power on Zennet</span>
+                </div>
+            </div>
+            <div class="col-md-4 countdown-bullet">
+                <div class="countdown-bullet-title">Why is Zencoin valuable?</div>
+                <div class="countdown-bullet-text">
+                     <span>Each Zencoin gives you access to a fraction of the world's computing power</span>
+                </div>
+            </div>
+            <div class="col-md-4 countdown-bullet">
+                <div class="countdown-bullet-title">How do I obtain Zencoin?</div>
+                <div class="countdown-bullet-text">
+                    <span>You can buy it directly in the presale, or earn Zencoin by renting your hardware using the Zennet client</span>
+                </div>
+            </div>
+            
+        </div>
+</div>
+<!-- /.countdown-wrapper --> 
+
     <!-- #1 Divider with few words/quote -->
     <section class="divider  divider-bg-1 vision center">        
     </section><!-- #1 divider ends -->
@@ -292,67 +390,6 @@
                 <div id="press-target"></div>
         </div>
     </div>
-    <!-- #3 Divider with few words/quote -->
-   <!--  <section class="divider  divider-bg-3  center">
-    </section> -->
-
-    <!-- Team/staff section starts here --
-    <div class="container center" id="team" name="team">
-        <br>
-        <div class="row  center">
-            <br>
-            <h1 class="section-title center" id="team-title">Meet The Team</h1>
-            <p>some text about our team</p>
-
-            <br>
-            <br>
-            <br>
-
-             <div class="col-lg-12  center team-container">
-                    <div class="col-lg-2  center col-lg-offset-1">
-                        <img class="img  img-circle  team-member" src="./images/ohad.jpg" height="130px" width="130px" alt="">
-                        <br>
-                        <h4><b>Ohad Asor</b></h4> 
-                         <p>Hi, I'm Ohad</p> 
-                      
-                       
-                    </div>
-
-                    <div class="col-lg-2  center">
-                        <img class="img  img-circle  team-member" src="./images/amnon.jpg" height="130px" width="130px" alt="">
-                        <br>
-                        <h4><b>Amnon Dafni</b></h4>
-                        <p>and I'm Amnon. </p>
-                
-                        
-                    </div>
-
-                    <div class="col-lg-2  center">
-                        <img class="img  img-circle  team-member" src="./images/daniel.jpg" height="130px" width="130px" alt="">
-                        <br>
-                        <h4><b>Daniel Peled</b></h4>
-                        <p>Peled. Daniel Peled</p>
-                 
-                        
-                    </div>   
-
-                    <div class="col-lg-2  center">
-                        <img class="img  img-circle  team-member" src="./images/pl2.jpg" height="130px" width="130px" alt="">
-                        <br>
-                        <h4><b>Felicity Pear</b></h4>
-                        <p>Human Desire Hope Dream Need</p>
-                    </div>   
-
-                    <div class="col-lg-2  center">
-                        <img class="img  img-circle  team-member" src="./images/yoda.jpg" height="130px" width="130px" alt="">
-                        <br>
-                        <h4><b>Gil Erlich</b></h4>
-                        <p></p>
-                    </div>            
-            </div>
-        </div>
-        <br>
-    </div><!-- team/staff section ends -->
 
     <section class="divider  divider-bg-4  center">
     </section><!-- #4 divider ends -->  

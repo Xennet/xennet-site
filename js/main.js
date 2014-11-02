@@ -73,6 +73,8 @@ var id,
         $( window ).scroll(scrolled);
         
         scrolled();
+
+        $('.countdown').final_countdown({});
     });
 
     /////////////////////////////////////////////////////////////
