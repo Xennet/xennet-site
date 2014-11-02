@@ -5,7 +5,7 @@
 	-moz-transform: translateY(-50%);
 	transform: translateY(-50%);*/
 	width: 100%;
-	padding: 30px 320px;
+	padding: 30px 18%;
 	background-color: #655ad9; /*#ff8f03*/
 }
 
@@ -80,14 +80,90 @@
 	font-size: 16px;
 }
 
- @media (min-width: 768px) and (max-width: 991px) {
-	.countdown .clock-item {
-	margin-bottom: 30px;
+/*------------------------------------*\
+    $MEDIA-QUERIES
+\*------------------------------------*/
+
+@media screen and (max-width:1200px) {
+	.countdown .text .val {
+		margin: 5px 0 4px;
+		font-size: 28px;
+	}
+
+	.countdown .text .type-time {
+		font-size: 12px;
 	}
 }
 
- @media (max-width: 767px) {
+@media only screen and (min-device-width:768px) and (max-device-width : 1024px) and (orientation : portrait){
+}
+
+@media screen and (max-width:990px) {
+	.countdown .countdown-bullet-title {
+		margin-bottom: 0;
+	}
+
+	.countdown .countdown-bullet-text {
+		text-align: center;
+	}
+
+	.countdown .text .val {
+		margin: 3px 0 2px;
+		font-size: 26px;
+	}
+
+	.countdown .text .type-time {
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width:900px) {
+	.countdown .text .val {
+		margin-top: 4px;
+		font-size: 24px;
+	}
+
+	.countdown .text .type-time {
+		font-size: 8px;
+	}
+}
+
+
+/** MOBILE HEADER **/
+@media (min-width: 768px) and (max-width: 989px) {
 	.countdown .clock-item {
-	margin: 0px 30px 30px 30px;
+		margin-bottom: 30px;
+	}
+
+	
+}
+
+@media (max-width: 767px) {
+	.countdown .clock {
+		margin-bottom: 0;
+	}
+
+	.countdown .clock-item {
+		margin: 0px 30px 30px 30px;
+	}
+
+	.countdown .text .val {
+		margin: 4px 0 10px;
+		font-size: 40px;
+	}
+
+	.countdown .text .type-time {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 500px) {
+	.countdown .text .val {
+		margin: 3px 0 2px;
+		font-size: 26px;
+	}
+
+	.countdown .text .type-time {
+		font-size: 10px;
 	}
 }

@@ -386,15 +386,12 @@ body {
 .header-container {
   height: 60px;
   /*padding-top: 8px;*/
-  border-bottom: 1px solid #ffffff;
+  /*border-bottom: 1px solid @headerMenuLight; */
   overflow: visible !important;
 }
 .header-wrap {
   /*background-color: @coverColor;*/
   /*background: @coverPhoto;*/
-  /*background: url('http://sangil-test.comze.com/images/circuit-board-2.jpg') no-repeat center top;*/
-  /*background: url('http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_524000a90aaad_1.JPG') no-repeat center top;*/
-  /*background: url('http://openclipart.org/people/tagawa/circuit-board.svg') no-repeat center top;*/
   padding-top: 40px;
   margin-top: -50px;
   /*height: 750px;*/
@@ -856,13 +853,16 @@ h2.diagram-title {
     height: 60px;
     padding: 0 20px;
   }
+  .navbar-brand {
+    padding-top: 10px;
+  }
+  .logo {
+    margin-top: 0;
+  }
   .navbar-toggle {
     margin-top: 0;
     margin-right: 0;
     padding: 0;
-  }
-  .navbar-brand {
-    padding: 15px 0;
   }
   .navbar-collapse {
     position: absolute;
