@@ -121,14 +121,29 @@ textarea {
   color: #2b348d;
   text-shadow: none;
 }
+.header-wrap {
+  /*background-color: @coverColor;*/
+  background: url('../images/abstract-purple.jpg');
+  padding-top: 40px;
+  margin-top: -50px;
+  /*height: 750px;*/
+  height: 450px;
+  width: 100%;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  background-size: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
 .main-title {
-  font-family: 'Roboto Slab', serif;
+  font-family: "Lato";
   font-size: 140px;
-  margin-top: 56px;
+  margin-top: 80px;
   margin-bottom: 0;
   /*padding-bottom: 10px;*/
   /*color: #ecf0f1;*/
-  color: #655ad9;
+  color: #ffffff;
   font-variant: small-caps;
 }
 .sub-title {
@@ -138,19 +153,19 @@ textarea {
   font-weight: 300;
   letter-spacing: 0.5px;
   /*color: #ecf0f1;*/
-  color: #655ad9;
+  color: #ffffff;
 }
 .section-title {
   font-family: 'Roboto Slab', serif;
 }
 .background-color {
-  background-color: #fffffa !important;
+  /*background-color: #fffffa !important;*/
 }
 .header-link {
   background-color: transparent !important;
   margin: 0 15px;
-  /*color: @headerMenuLight;*/
-  color: #655ad9;
+  color: #ffffff;
+  /*color: @headerMenuDark;*/
   text-align: center;
 }
 .header-link:hover {
@@ -178,7 +193,7 @@ textarea {
   -webkit-filter: grayscale(0%);
 }
 .logo {
-  background: url('../images/logo-violet.png') no-repeat center top;
+  background: url('../images/logo-white.png') no-repeat center top;
   background-size: 100%;
   width: 40px;
   height: 40px;
@@ -223,7 +238,7 @@ h4,
 h5,
 h6 {
   /*font-family: 'Raleway', sans-serif;*/
-  font-family: 'Roboto Slab', serif;
+  font-family: "Lato";
   font-weight: 300;
   color: #3b3b3b;
 }
@@ -389,21 +404,6 @@ body {
   /*border-bottom: 1px solid @headerMenuLight; */
   overflow: visible !important;
 }
-.header-wrap {
-  /*background-color: @coverColor;*/
-  /*background: @coverPhoto;*/
-  padding-top: 40px;
-  margin-top: -50px;
-  /*height: 750px;*/
-  height: 350px;
-  width: 100%;
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  background-size: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-}
 /*------------------------------------*\
     $NAVIGATION
 \*------------------------------------*/
@@ -547,7 +547,7 @@ i:hover {
   top: 0;
   width: 100%;
   margin: auto;
-  font-family: 'Roboto Slab', serif;
+  font-family: "Lato";
   font-weight: 400;
   cursor: pointer;
   /*width: 50%;*/
@@ -711,7 +711,7 @@ h2.diagram-title {
   font-size: 26px;
   /*background-color: steelblue;
         color: white;*/
-  font-family: 'Roboto Slab', serif;
+  font-family: "Lato";
   /*font-weight: bold;*/
   color: #655ad9;
   /*color: #FF9933;*/

@@ -142,9 +142,12 @@ img.grayscale.disabled {
 @bulletTitleColor: @violet;
 @highlightColor: @efratYellowGreen;
 @coverColor: @headerMenuDark;
+@coverTextColor: white;
+@presaleBannerColor: @orange;
 
-@titleFont: @robotoSlab;
+@titleFont: @lato;
 @subTitleFont: @lato;
+@sectionTitleFont: @robotoSlab;
 @textFont: @lato;
 @textFontWeight: 400;
 
@@ -226,14 +229,33 @@ textarea {
     text-shadow: none;
 }
 
+.header-wrap {
+    /*background-color: @coverColor;*/
+    background: @coverPhoto;
+
+    padding-top: 40px;
+    margin-top: -50px;
+    /*height: 750px;*/
+    height: 450px;
+    width: 100%;
+    
+    -webkit-background-size: 100%;
+       -moz-background-size: 100%;
+            background-size: 100%;
+
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+            background-size: cover;
+}
+
 .main-title {
     font-family: @titleFont;
     font-size: 140px; 
-    margin-top: 56px;
+    margin-top: 80px;
     margin-bottom: 0;
     /*padding-bottom: 10px;*/
     /*color: #ecf0f1;*/
-    color: @coverColor;
+    color: @coverTextColor;
     font-variant: small-caps;
 }
 
@@ -244,22 +266,22 @@ textarea {
     font-weight: 300;
     letter-spacing: 0.5px;
     /*color: #ecf0f1;*/
-    color: @coverColor;
+    color: @coverTextColor;
 }
 
 .section-title {
-    font-family: @titleFont;
+    font-family: @sectionTitleFont;
 }
 
 .background-color {
-    background-color: #fffffa !important;
+    /*background-color: #fffffa !important;*/
 }
 
 .header-link {
     background-color: transparent !important;
     margin: 0 15px;
-    /*color: @headerMenuLight;*/
-    color: @headerMenuDark;
+    color: @headerMenuLight;
+    /*color: @headerMenuDark;*/
     text-align: center;
 
     &:hover {
@@ -291,7 +313,7 @@ textarea {
 }
 
 .logo {
-    background: url('../images/logo-violet.png') no-repeat center top;
+    background: url('../images/logo-white.png') no-repeat center top;
     background-size: 100%;
     width: 40px;
     height: 40px;
@@ -542,24 +564,6 @@ body {
     overflow: visible !important;
 }
 
-.header-wrap {
-    /*background-color: @coverColor;*/
-    /*background: @coverPhoto;*/
-
-    padding-top: 40px;
-    margin-top: -50px;
-    /*height: 750px;*/
-    height: 350px;
-    width: 100%;
-    
-    -webkit-background-size: 100%;
-       -moz-background-size: 100%;
-            background-size: 100%;
-
-    -webkit-background-size: cover;
-       -moz-background-size: cover;
-            background-size: cover;
-}
 
 
 /*------------------------------------*\
@@ -654,6 +658,9 @@ body {
 /*------------------------------------*\
     $VISION
 \*------------------------------------*/
+.container#vision {
+
+}
 
 .vision-wrap {
     text-align: center;
