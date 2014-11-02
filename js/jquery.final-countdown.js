@@ -26,9 +26,9 @@
     $.fn.final_countdown = function(options, callback) {
         element = $(this);
 
-        var  timeStart = new Date('2014-11-01T11:00:00-10:00'),
+        var  timeStart = new Date('2014-11-01T11:00:00-08:00'),
               timeNow = new Date(),
-              timeEnd = new Date('2014-11-11T11:00:00-10:00');
+              timeEnd = new Date('2014-11-11T11:00:00-08:00');
 
         //console.log('start', timeStart.getTime(), timeStart, 'end', timeEnd.getTime(), timeEnd);
 
