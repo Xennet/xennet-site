@@ -1,0 +1,245 @@
+.countdown.countdown-container {
+	/*position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	transform: translateY(-50%);*/
+	width: 100%;
+	padding: 30px 18%;
+	background-color: #655ad9;  /* violet */
+	/*background-color: #ff8f03;*/ /*orange*/
+	/*background-color: #9DB828;*/ /*green */
+}
+
+.countdown .countdown-title {
+	width: 100%;
+	text-align: center;
+	font-family: "Lato";
+	font-size: 64px;
+	padding-bottom: 20px;
+	margin-top: 20px;
+	color: white;
+	font-variant: small-caps;
+	
+}
+
+.countdown .countdown-bullet {
+	padding: 0 30px;
+}
+
+.countdown .countdown-bullet-title {
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+	color: white;
+	margin: 30px 0 10px;
+}
+
+.countdown .countdown-bullet-text {
+	width: 100%;
+	margin: auto;
+	font-size: 14px;
+	color: #9DB828;
+	text-align: center;
+}
+
+.countdown .clock {
+	margin-bottom: 40px;
+	padding: 0 50px;
+}
+
+.countdown .clock-item .inner {
+	height: 0px;
+	padding-bottom: 100%;
+	position: relative;
+	width: 100%;
+}
+
+.countdown .clock-canvas {
+	background-color: rgba(255, 255, 255, .1);
+	border-radius: 50%;
+	height: 0px;
+	padding-bottom: 100%;
+}
+
+.countdown .text {
+	color: #fff;
+	font-size: 30px;
+	/*font-weight: bold;*/
+	margin-top: -28px;
+	position: absolute;
+	top: 50%;
+	text-align: center;
+	/*text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);*/
+	width: 100%;
+}
+
+.countdown .text .val {
+	font-size: 40px;
+	margin-bottom: 10px;
+}
+
+.countdown .text .type-time {
+	font-size: 16px;
+}
+
+.email-wrapper {
+	/*background-color: #655ad9;*/
+	margin: 30px 0;
+	padding: 20px 0 30px;
+}
+
+.email-container {
+	text-align: center;
+}
+
+.email-info {
+	margin-bottom: 20px;
+}
+
+.email-title {
+	margin-bottom: 10px;
+	font-size: 30px;
+	color: #655ad9;
+}
+
+.email-text {
+	margin-bottom: 5px;
+	font-size: 20px;
+	color: black;
+}
+
+.email-notice {
+	font-size: 14px;
+	color: #777;
+}
+
+.email-input {
+	display: inline-block;
+	width: 280px;
+	height: 40px;
+	font-size: 20px;
+	line-height: 20px;
+	padding: 5px;
+}
+
+.email-btn {
+	width: 80px;
+	height: 40px;
+	margin: 0 0 0 10px;
+	/*padding-top: 5px;*/
+	background-color: #655ad9;
+	color: white;
+	font-size: 22px;
+	line-height: 14px;
+	vertical-align: top;
+}
+
+.email-btn:hover {
+	color: #ddd;
+	background-color: #554ac9;
+}
+/*------------------------------------*\
+    $MEDIA-QUERIES
+\*------------------------------------*/
+@media screen and (max-width:1600px) {
+	.countdown .countdown-title {
+		font-size: 58px;
+	}
+}
+
+@media screen and (max-width:1500px) {
+	.countdown .countdown-title {
+		font-size: 48px;
+	}
+}
+
+@media screen and (max-width:1200px) {
+	.countdown.countdown-container {
+		padding: 15px 0;
+	}
+
+	.countdown .text .val {
+		margin: 5px 0 4px;
+		font-size: 28px;
+	}
+
+	.countdown .text .type-time {
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width:990px) {
+	.countdown .countdown-bullet-title {
+		margin-bottom: 0;
+	}
+
+	.countdown .countdown-bullet-text {
+		text-align: center;
+	}
+
+	.countdown .text .val {
+		margin: 3px 0 2px;
+		font-size: 26px;
+	}
+
+	.countdown .text .type-time {
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width:900px) {
+	.countdown .countdown-title {
+		font-size: 34px;
+		padding-top: 7px;
+	}
+
+	.countdown .text .val {
+		margin-top: 4px;
+		font-size: 24px;
+	}
+
+	.countdown .text .type-time {
+		font-size: 8px;
+	}
+}
+
+
+/** MOBILE HEADER **/
+@media (min-width: 768px) and (max-width: 989px) {
+	.countdown .clock-item {
+		margin-bottom: 30px;
+	}
+
+	
+}
+
+@media (max-width: 767px) {
+	.countdown .clock {
+		margin-bottom: 0;
+	}
+
+	.countdown .clock-item {
+		margin: 0px 30px 30px 30px;
+	}
+
+	.countdown .text .val {
+		margin: 4px 0 10px;
+		font-size: 40px;
+	}
+
+	.countdown .text .type-time {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 500px) {
+	.countdown .text .val {
+		margin: 3px 0 2px;
+		font-size: 26px;
+	}
+
+	.countdown .text .type-time {
+		font-size: 10px;
+	}
+}
