@@ -478,6 +478,13 @@ body {
 /*------------------------------------*\
     $VISION
 \*------------------------------------*/
+.container#vision {
+  text-align: center;
+}
+.zennet-video {
+  width: 700px;
+  height: 393px;
+}
 .vision-wrap {
   text-align: center;
 }
@@ -882,6 +889,10 @@ h2.diagram-title {
   }
   .menu-label {
     line-height: 47px;
+  }
+  .zennet-video {
+    width: 500px;
+    height: 281px;
   }
   img.diagram-img {
     max-width: 250px !important;

@@ -87,8 +87,24 @@
 /*------------------------------------*\
     $MEDIA-QUERIES
 \*------------------------------------*/
+@media screen and (max-width:1600px) {
+	.countdown .countdown-title {
+		font-size: 58px;
+	}
+}
+
+@media screen and (max-width:1500px) {
+	.countdown .countdown-title {
+		font-size: 50px;
+		padding-top: 10px;
+	}
+}
 
 @media screen and (max-width:1200px) {
+	.countdown.countdown-container {
+		padding: 15px 0;
+	}
+
 	.countdown .text .val {
 		margin: 5px 0 4px;
 		font-size: 28px;
@@ -122,6 +138,11 @@
 }
 
 @media screen and (max-width:900px) {
+	.countdown .countdown-title {
+		font-size: 34px;
+		padding-top: 7px;
+	}
+
 	.countdown .text .val {
 		margin-top: 4px;
 		font-size: 24px;
