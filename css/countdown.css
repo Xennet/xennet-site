@@ -84,6 +84,74 @@
 	font-size: 16px;
 }
 
+.email-wrapper {
+	/*background-color: #655ad9;*/
+	margin: 30px 0;
+	padding: 20px 0 30px;
+}
+
+.email-container {
+	text-align: center;
+}
+
+.email-info {
+	margin-bottom: 20px;
+}
+
+.email-title {
+	margin-bottom: 10px;
+	font-size: 30px;
+	color: #655ad9;
+}
+
+.email-text {
+	margin-bottom: 5px;
+	font-size: 20px;
+	color: black;
+}
+
+.email-notice {
+	font-size: 14px;
+	color: #777;
+}
+
+.email-input {
+	display: inline-block;
+	width: 280px;
+	height: 40px;
+	font-size: 20px;
+	line-height: 20px;
+	padding: 5px;
+}
+
+.email-btn {
+	width: 80px;
+	height: 40px;
+	margin: 0 0 0 10px;
+	/*padding-top: 5px;*/
+	background-color: #655ad9;
+	color: white;
+	font-size: 22px;
+	line-height: 14px;
+	vertical-align: top;
+}
+
+.email-btn:hover {
+	color: #ddd;
+	background-color: #554ac9;
+}
+
+#email-alert {
+	position: absolute;
+	top: 30px;
+	left:0;
+	right:0;
+	margin-left:auto;
+	margin-right:auto;
+	width: 450px;
+	text-align: center
+}
+
 /*------------------------------------*\
     $MEDIA-QUERIES
 \*------------------------------------*/

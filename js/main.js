@@ -72,13 +72,38 @@ var id,
         $('.bullet').click(bulletClick);
         //$('.bullet-content').click(bulletClick);
 
-        $('.bullet-content').animate({'opacity': 1}, duration);
-        
+        $('.bullet-content').animate({'opacity': 1}, duration);        
+
+        $('.email-btn').click(function() {
+                var    email = $('.email-input').val(),
+                        isValid = $('#email-help-block').children().length < 1;
+
+                if (email && isValid) {
+                        $.ajax( {
+                            url: "https://script.google.com/macros/s/AKfycbwOu2WvSzOcEtkxvBkjL1yb2W__lcRSJHO4nOXXwD27ASBHgus/exec?email=" + email,
+                            //contentType : "application/x-www-form-urlencoded; charset=UTF-8",
+                            success: function( data ) {
+                              
+                              //alert( "Load was performed: " + data );
+                        }});
+
+                        $('.email-input').val('');
+
+                        $('#email-alert').css({'opacity': 1});
+                        
+                        setTimeout(function() {
+                                $('#email-alert').animate({'opacity': 0});
+                        }, 3000);
+                }
+        })
+
+        $('#email-alert').css({'opacity': 0});
+
+        // $('.countdown').final_countdown({});
+
         $( window ).scroll(scrolled);
         
         scrolled();
-
-        // $('.countdown').final_countdown({});
     });
 
     /////////////////////////////////////////////////////////////
