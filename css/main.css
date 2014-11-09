@@ -728,6 +728,7 @@ h2.diagram-title {
   opacity: 0.5;
 }
 .press-article {
+  display: none;
   font-size: 13px;
 }
 .press-logo {
@@ -751,6 +752,14 @@ h2.diagram-title {
 #press-logo-cryptobiz {
   width: 80%;
   margin-top: 12px;
+}
+#press-logo-altcointoday {
+  height: 82px;
+  max-height: none;
+  margin-top: -19px;
+}
+#press-logo-cryptoarticles {
+  margin-top: 6px;
 }
 /*------------------------------------*\
     $FOOTER
@@ -885,6 +894,9 @@ h2.diagram-title {
   }
   #press-logo-cryptobiz {
     max-width: 30%;
+  }
+  #press-logo-cryptoarticles {
+    width: 45%;
   }
 }
 /** MOBILE HEADER **/
