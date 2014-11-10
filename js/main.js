@@ -1,5 +1,23 @@
-var id,
-    coverHeight;
+
+    function makeid(id_length)
+    {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for( var i=0; i < id_length; i++ )
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return text;
+    }
+
+    var   userId = makeid(5),
+            ircHtml = '<iframe src="https://kiwiirc.com/client/irc.kiwiirc.com/?nick=user' + userId + '|?#zennet" style="border:0; width:100%; height:450px;"></iframe>';
+
+    var id,
+         coverHeight;
+
+
+
 
     $('document').ready(function() {
         var   duration = 300,
@@ -8,6 +26,9 @@ var id,
         var backgroundColor = '#fffffa',
               headerWidth = '85%',
               isScrolled = false;//$('body').scrollTop() > coverHeight - 50;          
+
+        // do this BEFORE the pages load
+        $('#col-irc').append(ircHtml);
 
         var bulletClick = function() {
                 //var $el = $(this).parent().parent();
@@ -81,10 +102,7 @@ var id,
                 if (email && isValid) {
                         $.ajax( {
                             url: "https://script.google.com/macros/s/AKfycbwOu2WvSzOcEtkxvBkjL1yb2W__lcRSJHO4nOXXwD27ASBHgus/exec?email=" + email,
-                            //contentType : "application/x-www-form-urlencoded; charset=UTF-8",
                             success: function( data ) {
-                              
-                              //alert( "Load was performed: " + data );
                         }});
 
                         $('.email-input').val('');
@@ -98,6 +116,7 @@ var id,
         })
 
         $('#email-alert').css({'opacity': 0});
+
 
         // $('.countdown').final_countdown({});
 

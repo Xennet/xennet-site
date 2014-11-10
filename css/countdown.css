@@ -142,7 +142,8 @@
 }
 
 #email-alert {
-	position: absolute;
+	position: fixed;
+	z-index: 2000;
 	top: 30px;
 	left:0;
 	right:0;
