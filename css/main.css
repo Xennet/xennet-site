@@ -843,6 +843,9 @@ h2.diagram-title {
   text-align: right;
   margin: 0 40px 0 10px;
 }
+.rtl .works-section-text {
+  font-size: 16px;
+}
 /*------------------------------------*\
     $MEDIA-QUERIES
 \*------------------------------------*/
