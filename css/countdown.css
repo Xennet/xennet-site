@@ -117,6 +117,7 @@
 
 .email-input {
 	display: inline-block;
+	text-align: left;
 	width: 280px;
 	height: 40px;
 	font-size: 20px;

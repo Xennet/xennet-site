@@ -712,6 +712,7 @@ h2.diagram-title {
 \*------------------------------------*/
 .press-container {
   margin-top: 40px;
+  margin-bottom: 40px;
 }
 .press-article-title a {
   width: 60px;
