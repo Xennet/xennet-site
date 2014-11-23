@@ -45,6 +45,7 @@
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="./js/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="./js/modernizr.custom.js"></script>
+        <script type="text/javascript" src="http://1000hz.github.io/bootstrap-validator/dist/validator.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -66,7 +67,8 @@
       ga('send', 'pageview');
 </script>
 
-    
+    <div class="alert alert-success" id="email-alert" role="alert">הדו"ל התקבל בהצלחה, תודה!</div>
+
     <!-- Fixed navigation bar starts  -->
     <div id="navbar-main">
         <div class="header navbar  navbar-inverse   navbar-fixed-top"> 
@@ -128,7 +130,7 @@
 
                 <form data-toggle="validator" role="form">
                     <div class="email-container email-controls form-group">
-                        <input class="email-input form-control" id="email-input" type="email" placeholder="email" data-error="Bruh, that email address is invalid">
+                        <input class="email-input form-control" id="email-input" type="email" placeholder="email" data-error="הכתובת אינה תקינה">
                         <span type="submit" class="btn email-btn">שלח</span>
                         <div class="help-block with-errors" id="email-help-block"></div>
                     </div>

@@ -154,6 +154,12 @@
 	text-align: center
 }
 
+#email-help-block {
+	text-align: right;
+	width: 25%;
+	margin: auto;
+}
+
 /*------------------------------------*\
     $MEDIA-QUERIES
 \*------------------------------------*/
