@@ -115,8 +115,6 @@
                 }
         })
 
-        $('#email-alert').css({'opacity': 0});
-
 
         // $('.countdown').final_countdown({});
 
