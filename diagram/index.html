@@ -671,6 +671,14 @@ $( document ).ready(function() {
                 .delay(durationExit)
                 .remove();
 
+      // cancel all running transitions
+      allBlocks_g.transition();
+      allBlocks.transition();
+
+       //  reset zencoin!
+      zen.style('opacity', 0).transition();
+      zen_g.attr('transform', 'translate(0,0)').transition();
+
       if (step === 1) {
           allBlocks_g
                       .attr('transform', 'translate(0, 0)')
@@ -696,6 +704,18 @@ $( document ).ready(function() {
           annBlock_g.attr('transform', 'translate(' + annBlockTranslate.x + ',' + annBlockTranslate.y + ')');
           zenBlock_g.attr('transform', 'translate(' + zenBlockTranslate.x + ',' + zenBlockTranslate.y + ')');
           allBlocks.attr('fill', COLORS.darkBlue);
+      }
+
+      if (step ===2) {
+          allBlocks
+            .transition()
+                .delay(durationEnter)
+                .duration(0)
+                .attr('fill', COLORS.green)
+            .transition()
+                 .delay(durationEnter + 50)
+                .duration(blockColorDuration)
+                .attr('fill', COLORS.darkBlue);
       }
 
       if (step === 4) {
@@ -740,13 +760,7 @@ $( document ).ready(function() {
                       .duration(blockColorDuration)
                       .attr('fill', COLORS.darkBlue);
       }     
-      else {
-          // cancel all transitions and reset elements!
-          zenBlock_g.transition();
-          zenBlock.transition();
-          zen.style('opacity', 0).transition();
-          zen_g.attr('transform', 'translate(0,0)').transition();
-      } 
+
 
       // ** VM **
       if (step < 5) {
