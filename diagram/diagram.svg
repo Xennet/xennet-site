@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="650px" height="423.5px" viewBox="0 0 650 423.5" enable-background="new 0 0 650 423.5" xml:space="preserve">
+<g display="none">
+	<path display="inline" fill="#074C7A" d="M310.556,244.002H189.889c-1.656,0-3,1.343-3,3v84c0,1.657,1.344,3,3,3h120.667
+		c1.657,0,3-1.343,3-3v-84C313.556,245.345,312.213,244.002,310.556,244.002z M304.889,321.668c0,1.289-1.157,2.333-2.589,2.333
+		H198.145c-1.43,0-2.589-1.045-2.589-2.333v-65.333c0-1.289,1.159-2.333,2.589-2.333H302.3c1.432,0,2.589,1.045,2.589,2.333V321.668
+		L304.889,321.668z"/>
+	<rect x="242.556" y="331.002" display="inline" fill="#074C7A" width="15.333" height="16.5"/>
+	<rect x="223.473" y="343.002" display="inline" fill="#074C7A" width="53.5" height="4.5"/>
+	<g display="inline">
+		<g>
+			<rect x="164.334" y="271.688" fill="#074C7A" width="48.333" height="91"/>
+			<rect x="169.334" y="278.688" fill="#FFFFFF" width="38.333" height="77"/>
+		</g>
+		<rect x="173.584" y="283.938" fill="#074C7A" width="29.833" height="7"/>
+		<rect x="173.584" y="298.667" fill="#074C7A" width="29.833" height="7"/>
+		<rect x="173.584" y="313.396" fill="#074C7A" width="29.833" height="7"/>
+		<rect x="173.584" y="328.125" fill="#074C7A" width="7.333" height="7"/>
+		<rect x="173.584" y="342.854" fill="#074C7A" width="29.833" height="7.002"/>
+	</g>
+</g>
+<g id="vm" opacity="0">
+	<rect id="vm-back" x="451.662" y="269.402" fill="#FFFFFF" width="42.676" height="80.351"/>
+	<g id="pc_1_">
+		<path fill="#297A9E" d="M451.662,269.402v80.351h42.676v-80.351H451.662z M489.923,343.57h-33.846v-67.986h33.846V343.57z"/>
+		<rect x="459.829" y="280.221" fill="#297A9E" width="26.341" height="6.182"/>
+		<rect x="459.829" y="293.225" fill="#297A9E" width="26.341" height="6.181"/>
+		<rect x="459.829" y="306.229" fill="#297A9E" width="26.341" height="6.182"/>
+		<rect x="459.829" y="319.234" fill="#297A9E" width="6.475" height="6.182"/>
+		<rect x="459.829" y="332.24" fill="#297A9E" width="26.341" height="6.181"/>
+	</g>
+	<rect x="451.205" y="253.497" fill="none" width="43.252" height="15.905"/>
+	<text id="label_3_" transform="matrix(1 0 0 1 462.167 264.9531)" fill="#297A9E" font-family="'ArialMT'" font-size="16">vm</text>
+</g>
+<g id="provider">
+	<rect id="prov-back" x="451.813" y="246.579" fill="#FFFFFF" fill-opacity="0" width="128.375" height="102"/>
+	<rect x="473.729" y="253.497" fill="#FFFFFF" width="102.271" height="64.974"/>
+	<g id="pc">
+		<rect x="454" y="272" fill="#FFFFFF" width="39" height="73.5"/>
+		<path fill="#074C7A" d="M451.813,268.641v80.35h42.678v-80.35H451.813z M490.072,342.807h-33.846v-67.984h33.846V342.807z"/>
+		<rect x="459.98" y="279.456" fill="#074C7A" width="26.34" height="6.181"/>
+		<rect x="459.98" y="292.461" fill="#074C7A" width="26.34" height="6.182"/>
+		<rect x="459.98" y="305.467" fill="#074C7A" width="26.34" height="6.18"/>
+		<rect x="459.98" y="318.471" fill="#074C7A" width="6.475" height="6.182"/>
+		<rect x="459.98" y="331.475" fill="#074C7A" width="26.34" height="6.183"/>
+	</g>
+	<path id="screen" fill="#074C7A" d="M577.621,246.172H474.338c-1.418,0-2.564,1.148-2.564,2.567v21.13h7.418v-13.141
+		c0-1.104,0.99-1.998,2.215-1.998h89.148c1.225,0,2.215,0.895,2.215,1.998v55.92c0,1.104-0.99,1.996-2.215,1.996h-76.719v8.561
+		h25.582v7.703h-16.334v3.852h16.334h13.123h16.336v-3.852h-16.336v-7.703h45.08c1.418,0,2.564-1.148,2.564-2.568V248.74
+		C580.188,247.32,579.039,246.172,577.621,246.172z"/>
+	<rect x="473.729" y="225.766" fill="none" width="104.5" height="15.906"/>
+	<text id="label_1_" transform="matrix(1 0 0 1 497.0771 237.2217)" fill="#074C7A" font-family="'ArialMT'" font-size="16">provider</text>
+</g>
+<g id="publisher">
+	<rect id="pub-back" x="65.813" y="246.579" fill="#FFFFFF" fill-opacity="0" width="128.375" height="102"/>
+	<rect x="89.5" y="251" fill="#FFFFFF" width="100" height="68.234"/>
+	<g id="pc_3_">
+		<rect x="68" y="272" fill="#FFFFFF" width="37.5" height="73.5"/>
+		<path fill="#074C7A" d="M65.813,268.641v80.35h42.677v-80.35H65.813z M104.072,342.807H70.228v-67.984h33.845v67.984H104.072z"/>
+		<rect x="73.98" y="279.456" fill="#074C7A" width="26.34" height="6.181"/>
+		<rect x="73.98" y="292.461" fill="#074C7A" width="26.34" height="6.182"/>
+		<rect x="73.98" y="305.467" fill="#074C7A" width="26.34" height="6.18"/>
+		<rect x="73.98" y="318.471" fill="#074C7A" width="6.475" height="6.182"/>
+		<rect x="73.98" y="331.475" fill="#074C7A" width="26.34" height="6.183"/>
+	</g>
+	<path id="screen_2_" fill="#074C7A" d="M191.621,246.172H88.338c-1.418,0-2.565,1.148-2.565,2.567v21.13h7.418v-13.141
+		c0-1.104,0.991-1.998,2.215-1.998h89.149c1.224,0,2.215,0.895,2.215,1.998v55.92c0,1.104-0.991,1.996-2.215,1.996h-76.719v8.561
+		h25.582v7.703h-16.334v3.852h16.334h13.123h16.336v-3.852h-16.336v-7.703h45.08c1.418,0,2.565-1.148,2.565-2.568V248.74
+		C194.188,247.32,193.039,246.172,191.621,246.172z"/>
+	<rect x="87" y="225.766" fill="none" width="104.5" height="15.906"/>
+	<text id="label" transform="matrix(1 0 0 1 106.7852 237.2217)" fill="#074C7A" font-family="'ArialMT'" font-size="16">publisher</text>
+</g>
+<g id="blockchain">
+	<circle id="bc-back" fill="#FFFFFF" cx="328.897" cy="100.306" r="51.273"/>
+	<path fill="#FFFFFF" stroke="#074C7A" stroke-width="3" stroke-miterlimit="10" d="M381.488,92.397
+		c-3.444-25.085-25.915-44.456-53.142-44.456c-21.882,0-40.693,12.519-49.025,30.455c-1.507-0.131-3.035-0.207-4.587-0.207
+		c-22.359,0-40.483,14.063-40.483,31.413c0,17.348,18.124,31.411,40.483,31.411c6.602,0,12.828-1.233,18.334-3.409
+		c9.43,7.872,21.766,12.655,35.28,12.655c12.45,0,23.901-4.061,32.999-10.854c3.615,1.036,7.533,1.608,11.633,1.608
+		c18.098,0,32.773-11.072,32.773-24.732C405.75,104.844,395.46,95.227,381.488,92.397z"/>
+	<g>
+		<rect x="260.599" y="92.719" fill="#074C7A" width="12.255" height="12.254"/>
+		<rect x="285.659" y="92.719" fill="#074C7A" width="12.254" height="12.254"/>
+		<rect x="310.494" y="92.719" fill="#074C7A" width="12.256" height="12.254"/>
+		<rect x="286.406" y="110.292" fill="#074C7A" width="12.256" height="12.254"/>
+		<line fill="none" stroke="#074C7A" stroke-width="2" stroke-miterlimit="10" x1="267.727" y1="98.846" x2="315.494" y2="98.846"/>
+		
+			<line fill="none" stroke="#074C7A" stroke-width="2" stroke-miterlimit="10" x1="272.656" y1="99.983" x2="293.542" y2="116.419"/>
+		<g id="zen-block-g">
+			
+				<line id="zen-path" fill="none" stroke="#064B7A" stroke-width="2" stroke-miterlimit="10" x1="282.297" y1="98.846" x2="314.495" y2="98.846"/>
+			<rect id="zen-block" x="310.496" y="92.719" fill="#064B7A" width="12.254" height="12.254"/>
+		</g>
+		<g id="ann-block-g">
+			
+				<line id="ann-path" fill="none" stroke="#064B7A" stroke-width="2" stroke-miterlimit="10" x1="282.297" y1="98.846" x2="314.495" y2="98.846"/>
+			<rect id="ann-block" x="310.496" y="92.719" fill="#064B7A" width="12.254" height="12.254"/>
+		</g>
+	</g>
+	<rect x="253.502" y="25.188" fill="none" width="140.999" height="15.906"/>
+	<text id="label_2_" transform="matrix(1 0 0 1 286.2007 36.6436)" fill="#074C7A" font-family="'ArialMT'" font-size="16">blockchain</text>
+</g>
+<g id="zencoin-g">
+	<path id="zencoin" fill="#E9554E" d="M173.895,239.626h4.058l2.768-4.169h-7.201v-1.786h9.616v1.544l-2.944,4.411h2.867v1.654
+		h-3.97l-3.308,4.973h7.498v1.831h-9.958v-1.467l3.54-5.337h-2.966V239.626z M178.001,227.127c-7.456,0-13.499,6.044-13.499,13.499
+		s6.043,13.499,13.499,13.499s13.499-6.044,13.499-13.499S185.457,227.127,178.001,227.127z M177.953,252.017
+		c-6.291,0-11.391-5.101-11.391-11.391c0-6.291,5.1-11.391,11.391-11.391s11.391,5.1,11.391,11.391
+		C189.343,246.916,184.243,252.017,177.953,252.017z"/>
+</g>
+</svg>

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<style type="text/css">
+  #stage {
+    position: relative;
+    width: 50%;
+    margin: 30px auto 0;
+    /*height: 450px;*/
+  }
+  #stage svg {
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  #line{
+    width: 700px;
+    margin: 20px 0;
+    height: 300px;
+    background: #eee;
+  }
+
+  #publisher {
+      transform-origin: 130px, 325px;
+  }
+
+  #provider {
+      transform-origin: 315px, 325px;
+  }
+  
+  #vm {
+      transform-origin: 473px, 337px;
+  }
+  
+  #blockchain {
+     transform-origin: 320px, 90px;
+  }
+
+  svg text {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .role {
+    rx: 20px;
+    ry: 20px;
+  }
+
+  div.buttons-div {
+   /* position: absolute;
+    top: 420px;
+    width: 650px;*/
+  }
+
+  ul.buttons-ul {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    margin-top: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  li.button {
+    text-align: center;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    /*background-color: #655ad9;*/
+    background-color: #074B7A;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 10px;
+  }
+
+  li.button.active {
+    /*background-color: #9DB828;*/
+    background-color: #E9554E;
+  }
+
+  span.button-text {
+    line-height: 45px;
+    font-size: 20px;
+    color: white;
+    font-family: "Arial"
+  }
+
+  #zencoin {
+    opacity: 0;
+  }
+
+   .text-container {
+      text-align: center;
+      height: 70px;
+  }
+
+  .text-item {
+      font-family: "Arial";
+      font-size: 20px;
+      color: steelblue;
+      display: none;
+  }
+
+  .text-item p {
+      margin: 0 auto 10px;
+  }
+
+  .separator {
+      width: 50%;
+      height: 0;
+      border-top: 1px solid #276B9A;
+      margin: 10px auto 40px;
+  }
+
+  .em {
+      font-weight: bold;
+      color: #002B5A;
+  }
+
+  .hidden {
+      visibility: hidden;
+  }
+​</style>
+</head>
+<body>
+<div id="stage"> 
+    <!-- SVG will go here --> 
+</div>
+
+<div class="text-container">
+      <div class="text-item" name="1"><p>A <a class="em">publisher</a> announces his need for worker nodes on the blockchain.</p></div>
+      <div class="text-item" name="2"><p>A <a class="em">provider</a> in search of employment looks for these announcements on the blockchain.</div>
+      <div class="text-item" name="3"><p>When a matching announcement is found, the <a class="em">provider</a> and <a class="em">publisher</a> negotiate a contract.</div>
+      <div class="text-item" name="4">
+            <p>The <a class="em">publisher</a> places an initial fund in the <a class="em">provider's</a> account and locks it.</p>
+            <p>Additional funds will be placed in the account in accordance with the work done.</p>
+      </div>
+      <div class="text-item" name="5"><p>The <a class="em">provider</a> creates a <a class="em">virtual machine</a> on his device.</p></div>
+      <div class="text-item" name="6">
+            <p>The <a class="em">publisher</a> gets control over the <a class="em">virtual machine</a> from the <a class="em">provider.</a></p>
+            <p>Both sides can then frequently check the progess, and terminate the connection at will.</p>
+      </div>
+</div>
+
+<div class="separator hidden"></div>
+
+<div class="buttons-div hidden">
+      <ul class="buttons-ul">
+            <li class="button" step="1"><span class="button-text" >1</span></li>
+            <li class="button" step="2"><span class="button-text" >2</span></li>
+            <li class="button" step="3"><span class="button-text" >3</span></li>
+            <li class="button" step="4"><span class="button-text" >4</span></li>
+            <li class="button" step="5"><span class="button-text" >5</span></li>
+            <li class="button" step="6"><span class="button-text" >6</span></li>
+     </ul>
+ </div>
+
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/d3.v3.min.js"></script>
+<script type="text/javascript">
+
+$( document ).ready(function() {
+  var AUTO_START = false;
+
+  var CURVED_LINES = false;
+
+  var COLORS = {
+        orange: '#E9554E',
+        gold: '#FFD700',
+        green: '#9DB828',
+        lightBlue: 'steelblue',
+        darkBlue: '#074C7A'
+  };
+
+  var   w = $('#stage').width(),
+          h = $('#stage').height();
+
+    // var w = 700;
+    // var h = 300;
+  var  x = function(d) {return d.x},
+        y = function(d) {return d.y};
+
+  var textCircleRadius = 12,
+       circleTextSize = "14px";
+
+  var markerParams;
+  var anchorOffset = {x:12, y: 8};
+  var defs;
+  var lineData;
+  var lg1, lg2;
+  var publisher, provider, vm, blockchain;
+  var vmTranslate = {x: -50, y: -50};
+  var annBlockTranslate = {x: 25, y: 0},
+        zenBlockTranslate = {x: 50, y: 0};
+  var lineFunction = d3.svg.line()
+                              .x(x)
+                              .y(y)
+                              .interpolate("cardinal");
+
+   var annBlock_g,
+         annBlock,
+         zenBlock_g,
+         zenBlock,
+         allBlocks_g,
+         allBlocks,
+         zen,
+         zen_g;
+
+   var step;
+
+   var getAngle = function(center, point) {
+        var dx = point.x - center.x,
+              dy = (point.y - center.y);
+
+        var angleRad = Math.atan2(dy , dx) + (Math.PI / 2),
+              angleDeg = (angleRad * 180 / Math.PI);  
+   }
+
+    var linePoints = function(p1, p2) {
+        if (!p1) { return [ {x:0, y:0}, {x:0, y:0}, {x:0, y:0}]; }
+
+        var p2 = p2 || p1;
+        var  isBezier = CURVED_LINES || false,
+              offset = isBezier ? 100 : 0,
+              center = {
+                  x: p1.x + (p2.x - p1.x) / 2,
+                  y: p1.y + (p2.y - p1.y) / 2 + offset
+              } 
+
+        return [p1, center, p2];
+    }
+
+    var getPath = function(points, isClosedShape) {
+        var isClosedShape = isClosedShape || false;
+        var d;
+
+        // use Bezier curves
+        if (CURVED_LINES) {
+
+        }
+
+        else {
+            var lineGenerator = d3.svg.line()
+            .x(function(d) { return d.x; })
+            .y(function(d) { return d.y; })
+            .interpolate("linear");
+
+            d = lineGenerator(points);
+        }
+
+       
+        return d;
+    }
+
+    var getMarkerParams = function(id, width, height, stroke_width, stroke_color, fill) {
+          var indent = Math.ceil(width / 10);
+
+          var markerParams = {
+              id: id,
+              viewBox: "0 0 " + width + " " + height,
+              orient: "auto",
+              refX: 10,//width  / 2,
+              refY: height / 2,
+              markerUnits: 'userSpaceOnUse', //stroke_width,
+              markerWidth: width,
+              markerHeight: height,
+              d: "M0,0 L" + (width - 10) + "," + (height / 2) + " 0," + height + " " + indent + "," + (height / 2) + " Z",
+              strokeWidth: stroke_width,
+              strokeColor: stroke_color,
+              fill: ['green', 'lightBlue']
+          }
+
+        return markerParams;
+    }
+
+    var getAnchorPoint = function(role, side, type, offset) {
+        var offset = offset || {x:0, y:0};
+
+
+        if (defs[role]) {
+            if (defs[role].anchor && defs[role].anchor[side]) {
+            
+                if (type === 'origin') {
+                    return {
+                      x: defs[role].anchor[side].x + offset.x,
+                      y: defs[role].anchor[side].y + offset.y
+                    }
+                }
+                else { // TERMINUS e.g. the arrow tip
+                    // offset the anchor point
+                    switch(side) {
+                        case 'left': 
+
+                            return {
+                                  x: defs[role].anchor[side].x - anchorOffset.x + offset.x,
+                                  y: defs[role].anchor[side].y + offset.y
+                            }
+                        
+                         case 'right': 
+                              return {
+                                    x: defs[role].anchor[side].x + anchorOffset.x + offset.x,
+                                    y: defs[role].anchor[side].y + offset.y
+                              }
+
+                        case 'top': 
+                              return {
+                                    x: defs[role].anchor[side].x + offset.x,
+                                    y: defs[role].anchor[side].y - anchorOffset.y + offset.y
+                              }
+
+                        case 'topLeft':
+                              return {
+                                    x: defs[role].anchor[side].x + anchorOffset.x+ offset.x,
+                                    y: defs[role].anchor[side].y - anchorOffset.y + offset.y
+                              }
+
+                        case 'bottomLeft':
+                            if (role === 'bc') {
+                                return {
+                                      x: defs.bc.cx - (defs.bc.radius ) + offset.x, 
+                                      y: defs.bc.cy + (defs.bc.radius) + offset.y
+                                }
+                            }
+                            break;
+
+                         case 'bottomRight':
+                            if (role === 'bc') {
+                                return {
+                                      x: defs.bc.cx + defs.bc.radius + offset.x,
+                                      y: defs.bc.cy + defs.bc.radius + offset.y
+                                }
+                            }
+                            break; 
+                    }
+                }
+            }
+        }
+
+        return {x: 0, y: 0};
+    }
+
+    var textOffset = function(points) {
+      
+       var d = 20;
+       var start = points[0],
+            end = points[2];
+
+       var a,
+            angle;
+
+       var offset = {x:0, y:0};
+
+       if  (end.x === start.x) { // vertical line
+            return {x:d, y:0};
+       }
+
+       a = (end.y - start.y) / (end.x - start.x);
+
+       angle = Math.atan(a);
+
+       offset= {
+          x: -1 * d * Math.sin(angle),
+          y: d * Math.cos(angle)
+       }
+
+       return offset;
+    }
+
+  function init() {   
+        var  $pub = $('#publisher #pub-back'),
+              $prov = $('#provider #prov-back'),
+              $vm = $('#vm #vm-back'),
+              $blockchain = $('#blockchain #bc-back');
+              
+        defs = 
+              { 
+                  pub: {
+                      w: parseFloat($pub.attr('width')), 
+                      h: parseFloat($pub.attr('height')),
+                      x: parseFloat($pub.attr('x')),
+                      y: parseFloat($pub.attr('y'))
+                  },
+                  prov: {
+                     w: parseFloat($prov.attr('width')), 
+                      h: parseFloat($prov.attr('height')),
+                      x: parseFloat($prov.attr('x')),
+                      y: parseFloat($prov.attr('y'))
+                  },
+                  vm: {
+                      w: parseFloat($vm.attr('width')), 
+                      h: parseFloat($vm.attr('height')),
+                      x: parseFloat($vm.attr('x')) + vmTranslate.x,
+                      y: parseFloat($vm.attr('y')) + vmTranslate.y
+                  },
+                  bc: {
+                    radius: parseFloat($blockchain.attr('r')),
+                    cx: parseFloat($blockchain.attr('cx')),
+                    cy: parseFloat($blockchain.attr('cy'))
+                  }
+              };
+
+
+          markerParams = getMarkerParams("arrow-head", 30, 30, 0, "black", COLORS.lightBlue);
+
+          defs.pub.center = {x: defs.pub.x + defs.pub.w / 2, y: defs.pub.y + defs.pub.h / 2};
+          defs.pub.anchor = {
+                left: {x: defs.pub.x, y: defs.pub.center.y }, 
+                right: {x: defs.pub.x + defs.pub.w, y: defs.pub.center.y},
+                top: {x: defs.pub.center.x, y: defs.pub.center.y - (defs.pub.h / 2)}
+          };
+          defs.prov.center = {x: defs.prov.x + defs.prov.w / 2 + 15, y: defs.prov.y + defs.prov.h / 2};
+          defs.prov.anchor = {
+                left: {x: defs.prov.x, y: defs.prov.center.y }, 
+                right: {x: defs.prov.x + defs.prov.w, y: defs.prov.center.y},
+                top: {x: defs.prov.center.x, y: defs.prov.center.y - (defs.prov.h / 2)},
+                topLeft: {x: defs.prov.x, y: defs.prov.center.y - (defs.prov.h / 2)}
+          };
+         
+          defs.vm.center = {x: defs.vm.x + defs.vm.w / 2, y: defs.vm.y + defs.vm.h / 2};
+          defs.vm.anchor = {
+                left: {x: defs.vm.x, y: defs.vm.center.y }, 
+                right: {x: defs.vm.x + defs.vm.w, y: defs.vm.center.y}
+          };
+
+          defs.bc.center = {x: defs.bc.cx, y: defs.bc.cy};
+          defs.bc.anchor = {
+            bottomLeft: {x: defs.bc.cx - (defs.bc.radius * Math.cos(Math.PI / 4)), y: defs.bc.cy + (defs.bc.radius * Math.cos(Math.PI / 4))},
+            bottomRight: {x: defs.bc.cx + (defs.bc.radius * Math.cos(Math.PI / 4)), y: defs.bc.cy + (defs.bc.radius * Math.sin(Math.PI / 4))}
+          };
+
+          console.log(defs);
+          lineData = [
+            [], // 0
+            [   // 1
+               
+                {
+                  id: 1,
+                  order: 0,
+                  type: 'blockchain',
+                  start: linePoints(defs.pub.center), 
+                  end: linePoints(defs.pub.center, getAnchorPoint('bc' ,'bottomLeft', 'terminus'))
+                },
+            ],
+            [
+                 {
+                  id: 2,
+                  order: 0,
+                  type: 'blockchain',
+                  start: linePoints(defs.prov.center), 
+                  end: linePoints(defs.prov.center, getAnchorPoint('bc' ,'bottomRight', 'terminus'))
+                }
+            ],
+            [  
+               {
+                  id: 0,
+                  order: 0,
+                  type: 'direct',
+                  start: linePoints(getAnchorPoint('prov' ,'left', 'origin', {x:0, y: -20})), 
+                  end: linePoints(getAnchorPoint('prov' ,'left', 'origin', {x:0, y: -20}), getAnchorPoint('pub' ,'right', 'terminus', {x:-3, y: -20}))
+                },
+                {
+                  id: 3,
+                  order: 0,
+                  type: 'direct',
+                  start: linePoints(defs.pub.center), 
+                  end: linePoints(defs.pub.center, getAnchorPoint('prov' ,'left', 'terminus'))
+                }
+            ],
+            [
+                {
+                  id: 4,
+                  order: 0,
+                  type: 'blockchain',
+                  start: linePoints(defs.pub.center), 
+                  end: linePoints(defs.pub.center, getAnchorPoint('bc' ,'bottomLeft', 'terminus'))
+                },
+                 
+            ],
+            [ 
+                // {
+                //   id: 5,
+                //   order: 0,
+                //   type: 'blockchain',
+                //   start: linePoints(defs.prov.center), 
+                //   end: linePoints(defs.prov.center, getAnchorPoint('bc' ,'bottomRight', 'terminus'))
+                // }
+            ],
+            [
+                {
+                    id: 6,
+                    text: 'SSH',
+                    color: 'green',
+                    order: 0,
+                    type: 'direct',
+                    start: linePoints(defs.pub.center), 
+                    end: linePoints(defs.pub.center, getAnchorPoint('vm' ,'left', 'terminus'))
+                }
+            ]
+          ];       
+    }
+
+    function render() {
+        var svg = d3.select("svg#Layer_1");
+        //var svg = d3.select("#test")
+              // .append("svg")
+              // // .attr("width", w)
+              // // .attr("height", h)
+              // .attr("id", "vis")
+              // .attr("xmlns", "http://www.w3.org/2000/svg");
+
+        lg1 = svg.insert("g", ":first-child")
+                .attr("class", "line-group")
+                .attr("id", "lg1");
+        
+        lg2 = svg.insert("g", ":first-child")
+                .attr("class", "line-group")
+                .attr("id", "lg2");                
+
+        var svgdefs = svg.insert("defs",":first-child");
+
+        var marker = svgdefs.selectAll("marker")
+                  .data(markerParams.fill)
+              .enter().append("marker")
+                  .attr("id", function(d) { return markerParams.id + "-" + d })
+                  .attr("viewBox", markerParams.viewBox)
+                  .attr("orient", markerParams.orient)
+                  .attr('markerUnits', markerParams.markerUnits)
+                  .attr("refX", markerParams.refX)
+                  .attr("refY", markerParams.refY)
+                  .attr("markerWidth", markerParams.markerWidth)
+                  .attr("markerHeight", markerParams.markerHeight)
+              .append("path")
+                  .attr("d", markerParams.d)
+                  .attr("stroke-width", markerParams.strokeWidth)
+                  .attr("stroke-color", markerParams.strokeColor)
+                  .attr("fill", function(d) { return COLORS[d] });
+       
+          publisher = svg.select('#publisher'),
+          provider= svg.select('#provider'),
+          vm = svg.select('svg g#vm'),
+          blockchain = svg.select('#blockchain');
+
+          zen =  d3.select('#zencoin');
+          zen.attr('fill', COLORS.orange).attr('stroke-color', COLORS.orange).attr('stroke-width', 2);
+
+          zen_g = d3.select('#zencoin-g');
+          
+          annBlock_g = d3.select('#ann-block-g');
+          annBlock = d3.select('#ann-block');
+          zenBlock_g = d3.select('#zen-block-g');
+          zenBlock = d3.select('#zen-block');
+          allBlocks_g = d3.selectAll('#ann-block-g, #zen-block-g');
+          allBlocks = d3.selectAll('#ann-block, #zen-block');
+
+          $('.buttons-div, .separator').removeClass('hidden');
+  }
+
+
+  function update(step) {
+
+      var durationEnter = 500,
+            durationExit = 500;
+
+      var   animationCycles = 1,
+              zenDuration = 1200,
+              blockDuration = 1000,
+              blockColorDuration = 1500,
+              annBlockDelay = 1000,
+              zenBlockDelay = zenDuration * animationCycles + 500,
+              zenOffset = {x: -25, y: 0};
+
+      var   arrowStartPoint = defs.pub.center,
+              arrowEndPoint = getAnchorPoint('bc' ,'bottomLeft', 'terminus');
+
+      var   zenTranslate = {
+          x: (arrowEndPoint.x - arrowStartPoint.x) *0.7,
+          y: (arrowEndPoint.y - arrowStartPoint.y) * 0.7
+      };
+
+      var arrows = lg1.selectAll("path.arrow")
+           .data(lineData[step], function(d) {return d.id});
+
+        arrows.enter()
+            .append("path")
+            .attr('class', 'arrow')
+            .attr("marker-end", function(d) {   
+                  var color = d.color || 'lightBlue';
+                  return "url(#arrow-head-" + color + ")";
+             })
+            .attr("d", function (d) { return getPath(d.start) })
+            .attr("stroke", function(d) {
+                   var color = d.color || 'lightBlue';
+                   return COLORS[color];
+             })
+            .attr("stroke-width", 12)
+            .attr("fill", '')
+            .attr('opacity', 0)
+          .transition()
+                .duration(durationEnter)
+                .delay(function(d) {return d.order * durationEnter * 2})
+                .attr("d", function (d) { if(d.id === 4) {console.log('actual', d.end[2]);} return getPath(d.end) })
+                .attr('opacity', 1);
+      
+        arrows.exit()
+              .transition()
+                .duration(durationExit)
+                .attr('opacity', 0)
+              .transition()
+                .delay(durationExit)
+                .remove();
+
+        // var arrowCircles = lg1.selectAll("circle")
+        //     .data(lineData[step].filter( function(d) { return d.id > 0; } ), 
+        //             function(d) {return d.id});
+
+        //  arrowCircles.enter()
+        //       .append("circle")
+        //       .attr("cx", function(d) {return d.end[1].x  + textOffset(d.end).x})
+        //       .attr("cy", function(d) {return d.end[1].y  + textOffset(d.end).y})
+        //       .attr("r", 0)
+        //       .attr("fill", "none")
+        //       .attr("stroke", "steelblue")
+        //       .attr("stroke-width", 2)
+        //       .attr('opacity', 1)
+        //   .transition()
+        //       .delay(function(d) {return d.order * durationEnter * 2})
+        //       .duration(durationEnter)
+        //       //.ease('elastic')
+        //       .attr("r", textCircleRadius);
+
+        // arrowCircles.exit()
+        //       .transition()
+        //         .duration(durationExit)
+        //         .attr('opacity', 0)
+        //       .transition()
+        //         .delay(durationExit)
+        //         .remove();
+
+        var arrowText = lg1.selectAll("text")
+            .data(lineData[step].filter( function(d) { return d.id > 0; } ), 
+                    function(d) {return d.id});
+
+        arrowText.enter()
+              .append("text")
+              .attr("x", function(d) {return d.end[1].x  + textOffset(d.end).x})
+              .attr("y", function(d) {return d.end[1].y  +textOffset(d.end).y + 4})
+              .attr("text-anchor", "middle")
+              .attr("font-family", "sans-serif")
+              .attr("font-size", circleTextSize)
+              .attr("fill", function(d) {
+                    var color = d.color || 'lightBlue';
+                    return COLORS[color];
+               })
+              .attr('opacity', 0)
+              .text(function(d) {return d.text})
+          .transition()
+              .delay(function (d) {return d.order * durationEnter * 2})
+              .duration(durationEnter)
+              .attr('opacity', 1);
+
+        arrowText.exit()
+              .transition()
+                .duration(durationExit)
+                .attr('opacity', 0)
+              .transition()
+                .delay(durationExit)
+                .remove();
+
+      if (step === 1) {
+          allBlocks_g
+                      .attr('transform', 'translate(0, 0)')
+                  .transition()
+                      .duration(blockDuration)
+                      .delay(annBlockDelay)
+                      .ease('bounce')
+                      .attr('transform', 'translate(' + annBlockTranslate.x + ',' + annBlockTranslate.y + ')');
+
+          allBlocks
+            .transition()
+                .delay(annBlockDelay)
+                .attr('fill', COLORS.green)
+            .transition()
+                .delay(annBlockDelay + blockDuration)
+                .duration(blockColorDuration)
+                .attr('fill', COLORS.darkBlue);
+      }
+
+      else if (step < 4) {
+          zenBlock_g.attr('transform', 'translate(' + annBlockTranslate.x + ',' + annBlockTranslate.y + ')');
+      }
+      else if (step > 4) {
+          zenBlock_g.attr('transform', 'translate(' + zenBlockTranslate.x + ',' + zenBlockTranslate.y + ')');
+          zenBlock.attr('fill', COLORS.darkBlue);
+      }
+
+      if (step === 4) {
+                
+                function zenAnimation() {                        
+                        if (animationCycles-- > 0) {
+                              zen
+                                  .style('opacity', 0)                
+                              .transition()
+                                  .duration(zenDuration * 0.3)                                  
+                                  .style('opacity', 1)
+                              .transition()
+                                  .delay(zenDuration* 0.3)
+                                  .duration(zenDuration* 0.7)                                       
+                                  .style('opacity', 0);
+
+                            zen_g
+                                  .attr('transform', 'translate(' + zenOffset.x + ',' + zenOffset.y + ')')
+                              .transition()
+                                  .duration(zenDuration )
+                                  .attr('transform', 'translate(' + (zenTranslate.x + zenOffset.x) + ',' + (zenTranslate.y + zenOffset.y) + ')')
+                                  .each('end', zenAnimation);
+                      }
+               };
+
+               setTimeout(zenAnimation, durationEnter);
+
+               zenBlock_g
+                      .attr('transform', 'translate(' + annBlockTranslate.x + ',' + annBlockTranslate.y + ')')
+                  .transition()
+                      .duration(blockDuration)
+                      .delay(zenBlockDelay)
+                      .ease('bounce')
+                      .attr('transform', 'translate(' + zenBlockTranslate.x + ',' + zenBlockTranslate.y + ')');
+
+                zenBlock
+                  .transition()
+                      .delay(zenBlockDelay)
+                      .attr('fill', COLORS.orange)
+                  .transition()
+                      .delay(zenBlockDelay + blockDuration)
+                      .duration(blockColorDuration)
+                      .attr('fill', COLORS.darkBlue);
+      }     
+      else {
+          // cancel all transitions and reset elements!
+          zenBlock_g.transition();
+          zenBlock.transition();
+          zen.style('opacity', 0).transition();
+          zen_g.attr('transform', 'translate(0,0)').transition();
+      } 
+
+      // ** VM **
+      if (step < 5) {
+            vm
+              .attr('opacity', 0)    
+              .attr('transform', 'translate(0,0)')
+      }
+      else if (step === 5) {
+          var vmOrder = 0;
+
+           vm
+              .attr('opacity', 0)  
+           .transition()
+              .duration(durationEnter)
+              .delay(vmOrder * 2 * durationEnter)
+              .attr('transform', 'translate(' + vmTranslate.x + ',' + vmTranslate.y + ')')
+              .attr('opacity', 1);
+
+        } 
+        else if (step === 6) {
+             vm
+                .attr('transform', 'translate(' + vmTranslate.x + ',' + vmTranslate.y + ')')
+                .attr('opacity', 1);
+        } 
+   } //update
+   
+    $("#stage").load('diagram.svg',function(response){
+ 
+          $(this).addClass("svgLoaded");
+
+          if(!response){
+              // Error loading SVG!
+              // Make absolutely sure you are running this on a web server or localhost!
+              return;
+          }
+
+          init()
+          render();
+
+          setTimeout(function() {
+              if (AUTO_START) { $('li.button[step="1"]').click() };
+          }, 1000);
+    });
+
+      /*******************     EVENT HANDLERS   *****************/
+      $('li.button').click(function() {
+          var  duration = 200,
+                prevStep = step || 2;
+
+          step = parseInt($(this).attr('step'));
+
+          $('li.button.active').removeClass('active');
+          $(this).addClass('active');
+
+          d3.select('.text-item[name="' + prevStep + '"]')
+              .style('opacity', 1)
+          .transition()
+              .duration(duration)
+              .style('opacity', 0)
+          .transition()
+              .delay(duration)
+              .style('display', '');
+
+          d3.select('.text-item[name="' + step + '"]')
+              .style('opacity', 0)
+            .transition()
+              .delay(duration + 50)
+              .style('display', 'inline-block')
+              
+          .transition()
+              .delay(duration + 100)
+              .duration(duration)
+              .style('opacity', 1);
+        
+
+          update(step);
+      })   
+    });
+  </script>
+</body>
+</html>
