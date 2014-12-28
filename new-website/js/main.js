@@ -1,5 +1,5 @@
  $('document').ready(function() {
- 	var	timeEnd = new Date('2014-12-31T11:00:00-08:00');
+ 	var	timeEnd = new Date('2015-02-31T11:00:00-08:00');
 
            var  	headerWidth = '85%',
               	isScrolled = false;
