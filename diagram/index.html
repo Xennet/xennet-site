@@ -571,6 +571,9 @@ $( document ).ready(function() {
               zenBlockDelay = zenDuration * animationCycles + 500,
               zenOffset = {x: -25, y: 0};
 
+      var   vmOpacity = 0.7,
+              vmDuration = 1000;
+
       var   arrowStartPoint = defs.pub.center,
               arrowEndPoint = getAnchorPoint('bc' ,'bottomLeft', 'terminus');
 
@@ -685,14 +688,14 @@ $( document ).ready(function() {
                 .delay(annBlockDelay + blockDuration)
                 .duration(blockColorDuration)
                 .attr('fill', COLORS.darkBlue);
-      }
-
-      else if (step < 4) {
-          zenBlock_g.attr('transform', 'translate(' + annBlockTranslate.x + ',' + annBlockTranslate.y + ')');
+      }      
+      else if (step <= 4) {
+          allBlocks_g.attr('transform', 'translate(' + annBlockTranslate.x + ',' + annBlockTranslate.y + ')');
       }
       else if (step > 4) {
+          annBlock_g.attr('transform', 'translate(' + annBlockTranslate.x + ',' + annBlockTranslate.y + ')');
           zenBlock_g.attr('transform', 'translate(' + zenBlockTranslate.x + ',' + zenBlockTranslate.y + ')');
-          zenBlock.attr('fill', COLORS.darkBlue);
+          allBlocks.attr('fill', COLORS.darkBlue);
       }
 
       if (step === 4) {
@@ -757,16 +760,16 @@ $( document ).ready(function() {
            vm
               .attr('opacity', 0)  
            .transition()
-              .duration(durationEnter)
+              .duration(vmDuration)
               .delay(vmOrder * 2 * durationEnter)
               .attr('transform', 'translate(' + vmTranslate.x + ',' + vmTranslate.y + ')')
-              .attr('opacity', 1);
+              .attr('opacity', vmOpacity);
 
         } 
         else if (step === 6) {
              vm
                 .attr('transform', 'translate(' + vmTranslate.x + ',' + vmTranslate.y + ')')
-                .attr('opacity', 1);
+                .attr('opacity', vmOpacity);
         } 
    } //update
    
