@@ -166,7 +166,7 @@ h6 {
 }
 .header-wrap {
   /*background: @backgroundBlue;*/
-  background-image: url("../images/bg-1.jpg");
+  background-image: url("../images/bg-1.JPG");
   padding-top: 130px;
   height: 850px;
   width: 100%;
@@ -357,7 +357,7 @@ header {
     $FEATURES (BULLETS)
 \*------------------------------------*/
 .features-section {
-  background-image: url("../images/bg-2.jpg");
+  background-image: url("../images/bg-2.JPG");
   padding-bottom: 40px;
 }
 .bullet-container {
@@ -517,7 +517,7 @@ i:hover {
     $TEAM
 \*------------------------------------*/
 .team-section {
-  background-image: url("../images/bg-3.jpg");
+  background-image: url("../images/bg-3.JPG");
   padding-bottom: 60px;
 }
 .team-container {
