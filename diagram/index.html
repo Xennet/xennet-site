@@ -87,7 +87,8 @@
     font-family: "Arial"
   }
 
-  #zencoin {
+  #zencoin,
+  #s-zencoin {
     opacity: 0;
   }
 
@@ -137,10 +138,13 @@
             <p>The <a class="em">publisher</a> places an initial fund in the <a class="em">provider's</a> account and locks it.</p>
             <p>Additional funds will be placed in the account in accordance with the work done.</p>
       </div>
-      <div class="text-item" name="5"><p>The <a class="em">provider</a> creates a <a class="em">virtual machine</a> on his device.</p></div>
-      <div class="text-item" name="6">
+      <div class="text-item" name="5">
+            <p>The <a class="em">provider</a> creates a <a class="em">virtual machine</a> on his device.</p>
             <p>The <a class="em">publisher</a> gets control over the <a class="em">virtual machine</a> from the <a class="em">provider.</a></p>
-            <p>Both sides can then frequently check the progress, and terminate the connection at will.</p>
+      </div>
+      <div class="text-item" name="6">
+           <p>Every few seconds, the <a class="em">provider's</a> account is updated using micro-payments.</p>
+           <p>Both sides can then frequently check the progress, and terminate the connection at will.</p>
       </div>
 </div>
 
@@ -172,6 +176,15 @@ $( document ).ready(function() {
         green: '#9DB828',
         lightBlue: 'steelblue',
         darkBlue: '#074C7A'
+  };
+
+  var STEPS = {
+      publishAnn: 1,
+      pollAnn: 2,
+      handshake: 3,
+      lockFund: 4,
+      createVM: 5,
+      microPayment: 6
   };
 
   var   w = $('#stage').width(),
@@ -206,7 +219,9 @@ $( document ).ready(function() {
          allBlocks_g,
          allBlocks,
          zen,
-         zen_g;
+         zen_g,
+         mp,
+         mp_g;
 
    var step;
 
@@ -430,13 +445,12 @@ $( document ).ready(function() {
             bottomRight: {x: defs.bc.cx + (defs.bc.radius * Math.cos(Math.PI / 4)), y: defs.bc.cy + (defs.bc.radius * Math.sin(Math.PI / 4))}
           };
 
-          console.log(defs);
           lineData = [
             [], // 0
             [   // 1
                
                 {
-                  id: 1,
+                  id: STEPS.publishAnn,
                   order: 0,
                   type: 'blockchain',
                   start: linePoints(defs.pub.center), 
@@ -445,7 +459,7 @@ $( document ).ready(function() {
             ],
             [
                  {
-                  id: 2,
+                  id: STEPS.pollAnn,
                   order: 0,
                   type: 'blockchain',
                   start: linePoints(defs.prov.center), 
@@ -461,7 +475,7 @@ $( document ).ready(function() {
                   end: linePoints(getAnchorPoint('prov' ,'left', 'origin', {x:0, y: -20}), getAnchorPoint('pub' ,'right', 'terminus', {x:-3, y: -20}))
                 },
                 {
-                  id: 3,
+                  id: STEPS.handshake,
                   order: 0,
                   type: 'direct',
                   start: linePoints(defs.pub.center), 
@@ -470,7 +484,7 @@ $( document ).ready(function() {
             ],
             [
                 {
-                  id: 4,
+                  id: STEPS.lockFund,
                   order: 0,
                   type: 'blockchain',
                   start: linePoints(defs.pub.center), 
@@ -478,24 +492,25 @@ $( document ).ready(function() {
                 },
                  
             ],
-            [ 
-                // {
-                //   id: 5,
-                //   order: 0,
-                //   type: 'blockchain',
-                //   start: linePoints(defs.prov.center), 
-                //   end: linePoints(defs.prov.center, getAnchorPoint('bc' ,'bottomRight', 'terminus'))
-                // }
-            ],
             [
+                // order 0 is the VM animation
                 {
-                    id: 6,
+                    id: STEPS.createVM,
                     text: 'SSH',
                     color: 'green',
-                    order: 0,
+                    order: 1,
                     type: 'direct',
                     start: linePoints(defs.pub.center), 
                     end: linePoints(defs.pub.center, getAnchorPoint('vm' ,'left', 'terminus'))
+                }
+            ],
+            [
+                {
+                    id: STEPS.microPayment,   
+                    order: 0,
+                    type: 'blockchain',
+                    start: linePoints(getAnchorPoint('bc' ,'bottomRight', 'origin')), 
+                    end: linePoints(getAnchorPoint('bc' ,'bottomRight', 'origin'), getAnchorPoint('prov' ,'top', 'terminus', {x:-50, y: -20}))
                 }
             ]
           ];       
@@ -544,9 +559,12 @@ $( document ).ready(function() {
 
           zen =  d3.select('#zencoin');
           zen.attr('fill', COLORS.orange).attr('stroke-color', COLORS.orange).attr('stroke-width', 2);
-
           zen_g = d3.select('#zencoin-g');
           
+          mp = d3.select('#s-zencoin');
+          mp_g = d3.select('#s-zencoin-g');
+          mp.attr('fill', COLORS.orange).attr('stroke-color', COLORS.orange).attr('stroke-width', 1);
+
           annBlock_g = d3.select('#ann-block-g');
           annBlock = d3.select('#ann-block');
           zenBlock_g = d3.select('#zen-block-g');
@@ -563,24 +581,60 @@ $( document ).ready(function() {
       var durationEnter = 500,
             durationExit = 500;
 
-      var   animationCycles = 1,
-              zenDuration = 1200,
-              blockDuration = 1000,
-              blockColorDuration = 1500,
-              annBlockDelay = 1000,
-              zenBlockDelay = zenDuration * animationCycles + 500,
-              zenOffset = {x: -25, y: 0};
-
+      var   blockDuration = 1000,
+             blockColorDuration = 1500;
+                   
       var   vmOpacity = 0.7,
               vmDuration = 1000;
 
       var   arrowStartPoint = defs.pub.center,
               arrowEndPoint = getAnchorPoint('bc' ,'bottomLeft', 'terminus');
 
+      var   annBlockDelay = 1000;
+
+      var   zenAnimationCycles = 1,
+             zenDuration = 1200,
+             zenOffset = {x: -25, y: 0},
+             zenBlockDelay = zenDuration * zenAnimationCycles + 100;
+
       var   zenTranslate = {
           x: (arrowEndPoint.x - arrowStartPoint.x) *0.7,
           y: (arrowEndPoint.y - arrowStartPoint.y) * 0.7
       };
+
+      var  mpAnimationCycles = 3,
+            mpDuration = 600,
+            mpOffset = {x: 0, y: 0};
+
+      var  mpStartPoint = defs.bc.center,
+            mpEndPoint = getAnchorPoint('prov' ,'top', 'terminus');
+
+      var mpTranslate = {
+          x: (mpEndPoint.x - mpStartPoint.x) *0.7,
+          y: (mpEndPoint.y - mpStartPoint.y) * 0.7
+      };
+
+      function zenAnimation(object, object_g, cycles, duration, translate, offset) {      
+
+          if (cycles > 0) {
+                object
+                    .style('opacity', 0)                
+                .transition()
+                    .duration(duration * 0.3)                                  
+                    .style('opacity', 1)
+                .transition()
+                    .delay(duration* 0.3)
+                    .duration(duration* 0.7)                                       
+                    .style('opacity', 0);
+
+              object_g
+                    .attr('transform', 'translate(' + offset.x + ',' + offset.y + ')')
+                .transition()
+                    .duration(duration )
+                    .attr('transform', 'translate(' + (translate.x + offset.x) + ',' + (translate.y + offset.y) + ')')
+                    .each('end', function() { zenAnimation(object, object_g, --cycles, duration, translate, offset) }) ;
+            }
+       };
 
       var arrows = lg1.selectAll("path.arrow")
            .data(lineData[step], function(d) {return d.id});
@@ -679,7 +733,21 @@ $( document ).ready(function() {
       zen.style('opacity', 0).transition();
       zen_g.attr('transform', 'translate(0,0)').transition();
 
-      if (step === 1) {
+      // reset micropayments
+      mp.style('opacity', 0).transition();
+      mp_g.attr('transform', 'translate(0,0)').transition();
+
+      /* STEPS:
+      publishAnn: 1,
+      pollAnn: 2,
+      handshake: 3,
+      lockFund: 4,
+      createVM: 5,
+      microPayment: 6
+      */
+
+      // animate the ANN block
+      if (step === STEPS.publishAnn) {
           allBlocks_g
                       .attr('transform', 'translate(0, 0)')
                   .transition()
@@ -697,16 +765,17 @@ $( document ).ready(function() {
                 .duration(blockColorDuration)
                 .attr('fill', COLORS.darkBlue);
       }      
-      else if (step <= 4) {
+      else if (step <= STEPS.lockFund) {
           allBlocks_g.attr('transform', 'translate(' + annBlockTranslate.x + ',' + annBlockTranslate.y + ')');
       }
-      else if (step > 4) {
+      else if (step > STEPS.lockFund) {
           annBlock_g.attr('transform', 'translate(' + annBlockTranslate.x + ',' + annBlockTranslate.y + ')');
           zenBlock_g.attr('transform', 'translate(' + zenBlockTranslate.x + ',' + zenBlockTranslate.y + ')');
           allBlocks.attr('fill', COLORS.darkBlue);
       }
 
-      if (step ===2) {
+      // animate the ANN block flash (PROV polling)
+      if (step === STEPS.pollAnn) {
           allBlocks
             .transition()
                 .delay(durationEnter)
@@ -718,37 +787,19 @@ $( document ).ready(function() {
                 .attr('fill', COLORS.darkBlue);
       }
 
-      if (step === 4) {
+      // animate the Zencoin and lockfund block
+      if (step === STEPS.lockFund) {
                 
-                function zenAnimation() {                        
-                        if (animationCycles-- > 0) {
-                              zen
-                                  .style('opacity', 0)                
-                              .transition()
-                                  .duration(zenDuration * 0.3)                                  
-                                  .style('opacity', 1)
-                              .transition()
-                                  .delay(zenDuration* 0.3)
-                                  .duration(zenDuration* 0.7)                                       
-                                  .style('opacity', 0);
-
-                            zen_g
-                                  .attr('transform', 'translate(' + zenOffset.x + ',' + zenOffset.y + ')')
-                              .transition()
-                                  .duration(zenDuration )
-                                  .attr('transform', 'translate(' + (zenTranslate.x + zenOffset.x) + ',' + (zenTranslate.y + zenOffset.y) + ')')
-                                  .each('end', zenAnimation);
-                      }
-               };
+                zenAnimation(zen, zen_g, zenAnimationCycles, zenDuration, zenTranslate, zenOffset);
 
                setTimeout(zenAnimation, durationEnter);
 
                zenBlock_g
                       .attr('transform', 'translate(' + annBlockTranslate.x + ',' + annBlockTranslate.y + ')')
-                  .transition()
-                      .duration(blockDuration)
-                      .delay(zenBlockDelay)
-                      .ease('bounce')
+                   .transition()
+                       .duration(blockDuration)
+                       .delay(zenBlockDelay)
+                       .ease('bounce')
                       .attr('transform', 'translate(' + zenBlockTranslate.x + ',' + zenBlockTranslate.y + ')');
 
                 zenBlock
@@ -763,16 +814,17 @@ $( document ).ready(function() {
 
 
       // ** VM **
-      if (step < 5) {
+      if (step < STEPS.createVM) {
             vm
               .attr('opacity', 0)    
               .attr('transform', 'translate(0,0)')
       }
-      else if (step === 5) {
+      else if (step === STEPS.createVM) {
           var vmOrder = 0;
 
            vm
               .attr('opacity', 0)  
+              .attr('transform', 'translate(0,0)')
            .transition()
               .duration(vmDuration)
               .delay(vmOrder * 2 * durationEnter)
@@ -780,11 +832,24 @@ $( document ).ready(function() {
               .attr('opacity', vmOpacity);
 
         } 
-        else if (step === 6) {
+        else if (step === STEPS.microPayment) {
              vm
                 .attr('transform', 'translate(' + vmTranslate.x + ',' + vmTranslate.y + ')')
                 .attr('opacity', vmOpacity);
         } 
+
+        // animate micro payments
+        if (step === STEPS.microPayment) {
+              zenAnimation(mp, mp_g, mpAnimationCycles, mpDuration, mpTranslate, mpOffset);
+
+              zenBlock
+                      .attr('fill', COLORS.orange)
+                  .transition()
+                      .delay(durationEnter)
+                      .duration(blockColorDuration)
+                      .attr('fill', COLORS.darkBlue);
+        }
+
    } //update
    
     $("#stage").load('diagram.svg',function(response){
